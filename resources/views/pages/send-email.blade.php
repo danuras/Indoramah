@@ -32,11 +32,11 @@
                             </ul>
                         </li>
                         <li><a href="{{route('portfolio')}}">Portfolio</a></li>
-                        <li><a href="{{route('/#services')}}">Jasa & Produk</a></li>
+                        <li><a href="{{route('home')}}#services">Jasa & Produk</a></li>
                         <li><a href="{{route('customer')}}">Pelanggan</a></li>
-                        <li><a href="{{route('/#testimonies')}}">Testimoni</a></li>
+                        <li><a href="{{route('home')}}#testimonies">Testimoni</a></li>
                         <li><a href="{{route('blog')}}">Blog</a></li>
-                        <li><a href="{{route('/#location')}}">Lokasi</a></li>
+                        <li><a href="{{route('home')}}#location">Lokasi</a></li>
                     </ul>
                 </nav>
             </header>
@@ -130,11 +130,11 @@
                 <ul class="nospace linklist footer_menu">
                     <li><a href="{{route('home')}}">Home</a></li>
                     <li><a href="{{route('portfolio')}}">Portfolio</a></li>
-                    <li><a href="{{route('/#services')}}">Jasa & Produk</a></li>
+                    <li><a href="{{route('home')}}#services">Jasa & Produk</a></li>
                     <li><a href="{{route('customer')}}">Pelanggan</a></li>
-                    <li><a href="{{route('/#testimonies')}}">Testimoni</a></li>
+                    <li><a href="{{route('home')}}#testimonies">Testimoni</a></li>
                     <li><a href="{{route('blog')}}">Blog</a></li>
-                    <li><a href="{{route('/#location')}}">Lokasi</a></li>
+                    <li><a href="{{route('home')}}#location">Lokasi</a></li>
                 </ul>
             </div>
             <div class="one_quarter">
