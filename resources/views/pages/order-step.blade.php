@@ -1,6 +1,7 @@
-<!DOCTYPE html> <html> <head> <title>Merciano</title> <meta charset="utf-8">
+<!DOCTYPE html> <html> <head> <title>Langkah Pemesanan</title> <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+
+<link href="{{asset('layout/styles/layout.css')}}" rel="stylesheet" type="text/css" media="all">
 <link href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" rel="stylesheet" />
 </head>
 
@@ -13,30 +14,30 @@
         <div class="wrapper row1">
             <header id="header" class="hoc clear">
                 <div id="logo" class="fl_left">
-                    <h1><a href="/">Indoramah</a></h1>
+                    <h1><a href="{{route('home')}}">Indoramah</a></h1>
                 </div>
                 <nav id="mainav" class="fl_right">
                     <ul class="clear">
-                        <li><a href="/#">Home</a></li>
+                        <li><a href="{{route('home')}}">Home</a></li>
                         <li><a class="drop" href="#">Tentang Kami</a>
                             <ul>
                                 <li>
-                                    <a href="company-profile">Profil Perusahaan</a>
+                                    <a href="{{route('company-profile')}}">Profil Perusahaan</a>
                                 </li>
                                 <li>
-                                    <a href="advantage">Keunggulan Indoramah</a>
+                                    <a href="{{route('advantage')}}">Keunggulan Indoramah</a>
                                 </li>
                                 <li>
-                                    <a href="order-step">Cara Pemesanan</a>
+                                    <a href="{{route('order-step')}}">Cara Pemesanan</a>
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="portfolio">Portfolio</a></li>
-                        <li><a href="/#services">Jasa & Produk</a></li>
-                        <li><a href="customer">Pelanggan</a></li>
-                        <li><a href="/#testimonies">Testimoni</a></li>
-                        <li><a href="blog">Blog</a></li>
-                        <li><a href="/#location">Lokasi</a></li>
+                        <li><a href="{{route('portfolio')}}">Portfolio</a></li>
+                        <li><a href="{{route('/#services')}}">Jasa & Produk</a></li>
+                        <li><a href="{{route('customer')}}">Pelanggan</a></li>
+                        <li><a href="{{route('/#testimonies')}}">Testimoni</a></li>
+                        <li><a href="{{route('blog')}}">Blog</a></li>
+                        <li><a href="{{route('/#location')}}">Lokasi</a></li>
                     </ul>
                 </nav>
             </header>
@@ -52,22 +53,22 @@
                     <br><br>
                 <div class="group btmspace-50 demo">
                     <div class="one_quarter first">
-                        <figure><img class="circle" src="images/demo/60x60.png" alt=""></figure>
+                        <figure><img class="circle" src="{{asset('images/demo/60x60.png')}}" alt=""></figure>
                         <br>
                         <p>1. langkah pertama</p>
                     </div>
                     <div class="one_quarter">
-                        <figure><img class="circle" src="images/demo/60x60.png" alt=""></figure>
+                        <figure><img class="circle" src="{{asset('images/demo/60x60.png')}}" alt=""></figure>
                         <br>
                         <p>1. langkah kedua</p>
                     </div>
                     <div class="one_quarter">
-                        <figure><img class="circle" src="images/demo/60x60.png" alt=""></figure>
+                        <figure><img class="circle" src="{{asset('images/demo/60x60.png')}}" alt=""></figure>
                         <br>
                         <p>1. langkah ketiga</p>
                     </div>
                     <div class="one_quarter">
-                        <figure><img class="circle" src="images/demo/60x60.png" alt=""></figure>
+                        <figure><img class="circle" src="{{asset('images/demo/60x60.png')}}" alt=""></figure>
                         <br>
                         <p>1. langkah keempat</p>
                     </div>
@@ -104,13 +105,13 @@
             <div class="one_quarter">
                 <h6 class="title">Menu</h6>
                 <ul class="nospace linklist footer_menu">
-                    <li><a href="/#">Home</a></li>
-                    <li><a href="portfolio">Portfolio</a></li>
-                    <li><a href="/#services">Jasa & Produk</a></li>
-                    <li><a href="customer">Pelanggan</a></li>
-                    <li><a href="/#testimonies">Testimoni</a></li>
-                    <li><a href="blog">Blog</a></li>
-                    <li><a href="/#location">Lokasi</a></li>
+                    <li><a href="{{route('home')}}">Home</a></li>
+                    <li><a href="{{route('portfolio')}}">Portfolio</a></li>
+                    <li><a href="{{route('/#services')}}">Jasa & Produk</a></li>
+                    <li><a href="{{route('customer')}}">Pelanggan</a></li>
+                    <li><a href="{{route('/#testimonies')}}">Testimoni</a></li>
+                    <li><a href="{{route('blog')}}">Blog</a></li>
+                    <li><a href="{{route('/#location')}}">Lokasi</a></li>
                 </ul>
             </div>
             <div class="one_quarter">
@@ -140,9 +141,9 @@
 
     <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
     <!-- JAVASCRIPTS -->
-    <script src="layout/scripts/jquery.min.js"></script>
-    <script src="layout/scripts/jquery.backtotop.js"></script>
-    <script src="layout/scripts/jquery.mobilemenu.js"></script>
+    <script src="{{asset('layout/scripts/jquery.min.js')}}"></script>
+    <script src="{{asset('layout/scripts/jquery.backtotop.js')}}"></script>
+    <script src="{{asset('layout/scripts/jquery.mobilemenu.js')}}"></script>
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
 </body>
 

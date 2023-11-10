@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Merciano</title>
+    <title>Jasa & Produk</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="{{asset('layout/styles/layout.css')}}" rel="stylesheet" type="text/css" media="all">
@@ -18,30 +18,30 @@
         <div class="wrapper row1">
             <header id="header" class="hoc clear">
                 <div id="logo" class="fl_left">
-                    <h1><a href="/">Indoramah</a></h1>
+                    <h1><a href="{{route('home')}}">Indoramah</a></h1>
                 </div>
                 <nav id="mainav" class="fl_right">
                     <ul class="clear">
-                        <li><a href="/#">Home</a></li>
+                        <li><a href="{{route('home')}}">Home</a></li>
                         <li><a class="drop" href="#">Tentang Kami</a>
                             <ul>
                                 <li>
-                                    <a href="company-profile">Profil Perusahaan</a>
+                                    <a href="{{route('company-profile')}}">Profil Perusahaan</a>
                                 </li>
                                 <li>
-                                    <a href="advantage">Keunggulan Indoramah</a>
+                                    <a href="{{route('advantage')}}">Keunggulan Indoramah</a>
                                 </li>
                                 <li>
-                                    <a href="order-step">Cara Pemesanan</a>
+                                    <a href="{{route('order-step')}}">Cara Pemesanan</a>
                                 </li>
                             </ul>
                         </li>
                         <li><a href="{{route('portfolio')}}">Portfolio</a></li>
-                        <li><a href="/#services">Jasa & Produk</a></li>
+                        <li><a href="{{route('/#services')}}">Jasa & Produk</a></li>
                         <li><a href="{{route('customer')}}">Pelanggan</a></li>
-                        <li><a href="/#testimonies">Testimoni</a></li>
+                        <li><a href="{{route('/#testimonies')}}">Testimoni</a></li>
                         <li><a href="{{route('blog')}}">Blog</a></li>
-                        <li><a href="/#location">Lokasi</a></li>
+                        <li><a href="{{route('/#location')}}">Lokasi</a></li>
                     </ul>
                 </nav>
             </header>
@@ -60,7 +60,7 @@
                     <footer><a class="btn" href="https://wa.me/6283102377495?text=Hai%20INDORAMAH !%20Saya%20ingin%20tanya%20seputar%20jasa%20anda."><i class="fa fa-whatsapp my-float"></i> (WA) Hubungi - 0888 8888 8888</a></footer>
                 </div>
                 <div class="two_quarter">
-                    <figure><img class="circle" src="images/demo/60x60.png" alt=""></figure>
+                    <figure><img class="circle" src="{{asset('images/demo/60x60.png')}}" alt=""></figure>
                     <h3>Judul 1</h3>
                     <p  class="text_left">(penjelasan) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae voluptas doloremque sapiente modi ducimus doloribus dignissimos iusto illo ut quaerat, aliquam, vero accusamus ratione nobis. Eligendi, quod ducimus? Distinctio sed, quos, quod provident illo nobis dolore commodi voluptates fugiat corrupti, eaque unde voluptatum dolorum! Nesciunt officiis excepturi quos beatae, dolorem dicta voluptatibus quis laboriosam voluptatem earum consequatur neque quo ut maiores, incidunt totam atque nobis sequi. Molestiae, ratione iste molestias voluptatum saepe itaque tempore, atque nihil dicta ipsum aliquid odit!</p>
                     <ul>
@@ -100,13 +100,13 @@
             <div class="one_quarter">
                 <h6 class="title">Menu</h6>
                 <ul class="nospace linklist footer_menu">
-                    <li><a href="/#">Home</a></li>
+                    <li><a href="{{route('home')}}">Home</a></li>
                     <li><a href="{{route('portfolio')}}">Portfolio</a></li>
-                    <li><a href="/#services">Jasa & Produk</a></li>
+                    <li><a href="{{route('/#services')}}">Jasa & Produk</a></li>
                     <li><a href="{{route('customer')}}">Pelanggan</a></li>
-                    <li><a href="/#testimonies">Testimoni</a></li>
+                    <li><a href="{{route('/#testimonies')}}">Testimoni</a></li>
                     <li><a href="{{route('blog')}}">Blog</a></li>
-                    <li><a href="/#location">Lokasi</a></li>
+                    <li><a href="{{route('/#location')}}">Lokasi</a></li>
                 </ul>
             </div>
             <div class="one_quarter">

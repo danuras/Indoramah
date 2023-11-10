@@ -2,7 +2,7 @@
 
 <head> <title>Indoramah</title> <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> <link
-        href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all"> <link
+        href="{{asset('layout/styles/layout.css')}}" rel="stylesheet" type="text/css" media="all"> <link
         href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" rel="stylesheet" />
 </head> 
 <body id="top">   
@@ -18,14 +18,14 @@
                     <p>Pretium ullamcorper velit ut lobortis duis non (sub heading)</p>
                     <footer><a class="call_to_action" href="https://wa.me/6283102377495?text=Hai%20INDORAMAH !%20Saya%20ingin%20tanya%20seputar%20jasa%20anda."><i class="fa fa-whatsapp my-float"></i> (WA) Hubungi - 0888 8888 8888</a></footer>
                     <footer><a class="call_to_action" href="#services"><i class="fa fa-cube"></i> Info jasa & Produk</a></footer>
-                    <footer><a class="call_to_action" href="send-email"><i class="fa fa-envelope-o"></i> Kirim Email - email@gmail.com</a></footer>
+                    <footer><a class="call_to_action" href="{{route('send-email')}}"><i class="fa fa-envelope-o"></i> Kirim Email - email@gmail.com</a></footer>
                 </article>
             </div>
         </div>
         <div class="wrapper row1">
             <header id="header" class="hoc clear">
                 <div id="logo" class="fl_left">
-                    <h1><a href="/">Indoramah</a></h1>
+                    <h1><a href="{{route('home')}}">Indoramah</a></h1>
                 </div>
                 <nav id="mainav" class="fl_right">
                     <ul class="clear">
@@ -33,13 +33,13 @@
                         <li><a class="drop" href="#">Tentang Kami</a>
                             <ul>
                                 <li>
-                                    <a href="company-profile">Profil Perusahaan</a>
+                                    <a href="{{route('company-profile')}}">Profil Perusahaan</a>
                                 </li>
                                 <li>
-                                    <a href="advantage">Keunggulan Indoramah</a>
+                                    <a href="{{route('advantage')}}">Keunggulan Indoramah</a>
                                 </li>
                                 <li>
-                                    <a href="order-step">Cara Pemesanan</a>
+                                    <a href="{{route('order-step')}}">Cara Pemesanan</a>
                                 </li>
                             </ul>
                         </li>
@@ -273,13 +273,13 @@
     <div class="carousel-inner">
         <div class="item active">
             <!-- Bagian 3 -->
-            <div class="wrapper bgded overlay" style="background-image:url('images/demo/backgrounds/02.png');">
+            <div class="wrapper bgded overlay" style="background-image:url({{asset('images/demo/backgrounds/02.png')}});">
                 <div class="hoc container clear">
                     <div class="testimonial clear">
                         <blockquote>Est vitae varius vivamus enim mi egestas at lacinia et faucibus eget tellus aenean nec massa
                             semper luctus quam non cursus purus donec nec sollicitudin mauris at pulvinar lectus nunc eget mi a.
                         </blockquote>
-                        <figure><img class="circle" src="images/demo/60x60.png" alt="">
+                        <figure><img class="circle" src="{{asset('images/demo/60x60.png')}}" alt="">
                             <figcaption><strong>A.Doe</strong><br>
                                 <em>Job / Title</em>
                             </figcaption>
@@ -297,7 +297,7 @@
                         <blockquote>Est vitae varius vivamus enim mi egestas at lacinia et faucibus eget tellus aenean nec massa
                             semper luctus quam non cursus purus donec nec sollicitudin mauris at pulvinar lectus nunc eget mi a.
                         </blockquote>
-                        <figure><img class="circle" src="images/demo/60x60.png" alt="">
+                        <figure><img class="circle" src="{{asset('images/demo/60x60.png')}}" alt="">
                             <figcaption><strong>A.Doe</strong><br>
                                 <em>Job / Title</em>
                             </figcaption>
@@ -315,7 +315,7 @@
                         <blockquote>Est vitae varius vivamus enim mi egestas at lacinia et faucibus eget tellus aenean nec massa
                             semper luctus quam non cursus purus donec nec sollicitudin mauris at pulvinar lectus nunc eget mi a.
                         </blockquote>
-                        <figure><img class="circle" src="images/demo/60x60.png" alt="">
+                        <figure><img class="circle" src="{{asset('images/demo/60x60.png')}}" alt="">
                             <figcaption><strong>A.Doe</strong><br>
                                 <em>Job / Title</em>
                             </figcaption>
@@ -346,7 +346,7 @@
         <div class="latest">
             <article class="clear">
                 <div class="one_half first"><a class="iblock borderedbox inspace-10" href="#"><img
-                            src="images/demo/540x333.png" alt=""></a></div>
+                            src="{{asset('images/demo/540x333.png')}}" alt=""></a></div>
                 <div class="one_half">
                     <h3 class="heading">Elementum scelerisque nisi id sollicitudin tellus vivamus id convallis
                         tellus</h3>
@@ -377,7 +377,7 @@
                     <footer><a class="btn" href="https://www.danforblog.com/pengertian-dan-cara-membuat-blog-dummy/">Read More</a></footer>
                 </div>
                 <div class="one_half"><a class="iblock borderedbox inspace-10" href="#"><img
-                            src="images/demo/540x333.png" alt=""></a></div>
+                            src="{{asset('images/demo/540x333.png')}}" alt=""></a></div>
             </article>
         </div>
         <br><br>
@@ -462,9 +462,9 @@
 
 <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
 <!-- JAVASCRIPTS -->
-<script src="layout/scripts/jquery.min.js"></script>
-<script src="layout/scripts/jquery.backtotop.js"></script>
-<script src="layout/scripts/jquery.mobilemenu.js"></script>
+<script src="{{asset('layout/scripts/jquery.min.js')}}"></script>
+<script src="{{asset('layout/scripts/jquery.backtotop.js')}}"></script>
+<script src="{{asset('layout/scripts/jquery.mobilemenu.js')}}"></script>
 <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
 </body>
 
