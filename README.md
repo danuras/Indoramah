@@ -19,3 +19,4 @@
     <li>Run <code style="white-space: pre;">php artisan serve</code> untuk menjalankan projek</li>
     <li>Buka url <code style="white-space: pre;">127.0.0.1:8000</code> pada browser</li>
 </ol>
+<h2>Link (sementara): https://demo-indoramah-web.000webhostapp.com/</h2>
