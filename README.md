@@ -1,15 +1,26 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+=======
+<center><h1>Cara Pemakaian</h1></center>
+>>>>>>> da49265daadb9927e792857e90e1e945d5ceb7e5
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<h2>Kebutuhan alat</h2>
+<ol>
+<li>PHP versi 8.1&gt;</li>
+<li>Composer</li>
+</ol>
 
-## About Laravel
+<h2>Instalasi</h2>
+<ol>
+    <li>Run <code style="white-space: pre;">git clone https://github.com/danuras/indorecipe.git</code></li>
+    <li>Run <code style="white-space: pre;">composer install</code> di folder projek yang sudah diclone</li>
+    <li>duplikat file <code style="white-space: pre;">.env.example</code> lalu rename hasil duplikatnya dengan <code style="white-space: pre;">.env</code></li>
+    <li>konfigurasi email pada file <code style="white-space: pre;">.env</code></li>
+<li>Run <code style="white-space: pre;">php artisan key:generate</code> untuk membuat App Key</li>
+</ol>
 
+<<<<<<< HEAD
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
 - [Simple, fast routing engine](https://laravel.com/docs/routing).
@@ -68,3 +79,10 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 =======
 # Indoramah
 >>>>>>> 1912fbf5386a55e1c93df997323a3bdb7e9849c2
+=======
+<h2>Cara Merun projek</h2>
+<ol>
+    <li>Run <code style="white-space: pre;">php artisan serve</code> untuk menjalankan projek</li>
+    <li>Buka url <code style="white-space: pre;">127.0.0.1:8000</code> pada browser</li>
+</ol>
+>>>>>>> da49265daadb9927e792857e90e1e945d5ceb7e5
