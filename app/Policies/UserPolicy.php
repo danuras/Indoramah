@@ -1,0 +1,12 @@
+<?php
+
+namespace App\Policies;
+
+use App\Models\User;
+
+class UserPolicy
+{
+    public function isUserPrimary(User $user){
+        return $user->is_primary;
+    }
+}
