@@ -20,7 +20,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        if (\Schema::hasTable("email_services")) {
+      /*   if (\Schema::hasTable("email_services")) {
             $mail = DB::table('email_services')->first();
             if ($mail) {
                 $config = array(
@@ -36,6 +36,6 @@ class AppServiceProvider extends ServiceProvider
 
                 \Config::set('mail', $config);
             }
-        }
+        } */
     }
 }
