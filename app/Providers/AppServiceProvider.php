@@ -20,22 +20,27 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-      /*   if (\Schema::hasTable("email_services")) {
-            $mail = DB::table('email_services')->first();
-            if ($mail) {
-                $config = array(
-                    'driver' => 'smtp',
-                    'from' => array('address' => $mail->email_sender, 'name' => $mail->name),
-                    'username' => $mail->email_sender,
-                    'password' => $mail->password,
-                    'host' => 'smtp.gmail.com',
-                    'port' => 465,
-                    'encryption' => 'ssl',
-
-                );
-
-                \Config::set('mail', $config);
+        try {
+            if (\Schema::hasTable("email_services")) {
+                $mail = DB::table('email_services')->first();
+                if ($mail) {
+                    $config = array(
+                        'driver' => 'smtp',
+                        'from' => array('address' => $mail->email_sender, 'name' => $mail->name),
+                        'username' => $mail->email_sender,
+                        'password' => $mail->password,
+                        'host' => 'smtp.gmail.com',
+                        'port' => 465,
+                        'encryption' => 'ssl',
+    
+                    );
+    
+                    \Config::set('mail', $config);
+                }
             }
-        } */
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+        
     }
 }
