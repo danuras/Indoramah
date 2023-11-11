@@ -38,6 +38,9 @@ jobs:
 
       - name: Generate app key
         run: php artisan key:generate
+      
+      - name: Database migration
+        run: php artisan migrate
 
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
