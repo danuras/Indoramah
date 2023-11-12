@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('description');
             $table->string('image_url');
             $table->string('whatsapp_message');
-            $table->string('vission_mission');
+            $table->string('mission');
+            $table->string('vision');
             $table->timestamps();
         });
     }

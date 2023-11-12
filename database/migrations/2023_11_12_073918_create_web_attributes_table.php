@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('main_heading');
             $table->string('sub_heading');
             $table->string('background_image');
-            $table->string('background_testimonies');
-            $table->string('language');
+            $table->string('background_testimonies')->nullable();
+            $table->string('language')->default('id');
             $table->timestamps();
         });
     }

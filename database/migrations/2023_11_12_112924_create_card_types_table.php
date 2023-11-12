@@ -17,7 +17,7 @@ return new class extends Migration
             $table->json('teks')->nullable();
             $table->string('whatsapp_message')->nullable();
             $table->string('type')->nullable();
-            $table->string('sub_content-title')->nullable();
+            $table->string('sub_content_title')->nullable();
             $table->unsignedBigInteger('card_id');
             
             $table->foreign('card_id')->references('id')->on('cards')->onDelete('cascade')->onUpdate('cascade');
