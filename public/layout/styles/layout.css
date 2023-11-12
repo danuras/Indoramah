@@ -75,12 +75,14 @@
 /* Portfolio */
 #portfolio_card {
 	border-radius: 10px;
-	background-color:  #151517;
+	background-color: #151517;
 	padding: 20px;
 	transition: box-shadow 0.3s ease;
 }
+
 #portfolio_card:hover {
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Atur properti box-shadow sesuai kebutuhan */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+	/* Atur properti box-shadow sesuai kebutuhan */
 }
 
 
@@ -757,12 +759,13 @@ textarea:focus,
 	background-color: rgba(0, 0, 0, .55);
 }
 
-.btn{
+.btn {
 	color: #FFFFFF;
 	background-color: #D3B48D;
 	border-color: #D3B48D;
 	border-radius: 0px;
 }
+
 .btn.inverse:hover {
 	color: #FFFFFF;
 	background-color: #D3B48D;
@@ -770,12 +773,13 @@ textarea:focus,
 	border-radius: 0px;
 }
 
-.btn:hover{
+.btn:hover {
 	color: #000000;
 	background-color: transparent;
 	border-radius: 0px;
 	border-color: #000000;
 }
+
 .btn.inverse {
 	color: #FFFFFF;
 	background-color: transparent;
@@ -872,22 +876,28 @@ textarea:focus,
 	color: #FFFFFF;
 	border-color: #26272B;
 }
-.footer_menu li a{
+
+.footer_menu li a {
 	color: #FFFFFF;
-	text-decoration: none; /* Menghilangkan garis bawah default pada link */
-}
-.box_social_media{
-	background-color: #D3B48D;
-	color: #FFF;
-	border-radius: 5px;
-	text-align: center;
-	width: 40px;
-	height: 40px;
-	font-size: 28px;
+	text-decoration: none;
+	/* Menghilangkan garis bawah default pada link */
 }
 
-.box_social_media:hover{
-	background-color: transparent;	
+.box_social_media {
+	width: 40px;
+	height: 40px;
+	background-color: #D3B48D;
+	color: #FFF;
+	margin: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 28px;
+	border-radius: 5px;
+}
+
+.box_social_media:hover {
+	background-color: transparent;
 	border: 2px solid #fff;
 	color: #FFF;
 	border-radius: 5px;
@@ -1102,6 +1112,7 @@ table a,
 		padding: 0;
 	}
 
+
 	#header {
 		text-align: center;
 	}
@@ -1216,13 +1227,15 @@ table a,
 	width: 100%;
 	transition: box-shadow 0.3s ease;
 }
+
 .advantage_card:hover {
 	opacity: 0.9;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Atur properti box-shadow sesuai kebutuhan */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+	/* Atur properti box-shadow sesuai kebutuhan */
 }
 
 /* Menu kirim Email */
-.mail_box{
+.mail_box {
 	background-color: #000000;
 	opacity: 0.6;
 	padding: 20px;
@@ -1230,11 +1243,12 @@ table a,
 }
 
 /* Alignment */
-.image_left{
+.image_left {
 	height: 400px;
 	width: 400px;
 }
-.text_left{
+
+.text_left {
 	text-align: left;
 	width: 100%;
 }
