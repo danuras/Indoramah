@@ -50,7 +50,13 @@ Route::get('send-email', function(){
 })->name('send-email');
 
 Route::prefix('services')->group(function(){
+    Route::get('/', function (){
+        return view('pages.services.index');
+    })->name('services');
     Route::get('services-example', function(){
         return view('pages.services.services-example');
+    });
+    Route::get('services-example-2', function(){
+        return view('pages.services.services-example-2');
     });
 });

@@ -69,6 +69,173 @@
                     </ul>
                 </div>
             </div>
+            <div class="btmspace-50 center">
+                <h3 class="btmspace-10">(Sub JUDUL Konten)</h3>
+            </div>
+            
+            <ul class="nospace clear services content_card_1">
+                <li class="one_quarter first">
+                        <figure><img src="{{asset('images/demo/gallery/01.png')}}" alt="">
+                        </figure>
+                        <div class = "w-100 text-left">
+                            <b>Judul</b>
+                            <p>informasi-1</p>
+                            <p>informasi-2</p>
+                            <p>informasi-3</p>
+                        </div>
+                </li>
+                <li class="one_quarter">
+                        <figure><img src="{{asset('images/demo/gallery/01.png')}}" alt="">
+                        </figure>
+                        <div class = "w-100 text-left">
+                            <b>Judul</b>
+                            <p>informasi-1</p>
+                            <p>informasi-2</p>
+                            <p>informasi-3</p>
+                        </div>
+                </li>
+                <li class="one_quarter">
+                        <figure><img src="{{asset('images/demo/gallery/01.png')}}" alt="">
+                        </figure>
+                        <div class = "w-100 text-left">
+                            <b>Judul</b>
+                            <p>informasi-1</p>
+                            <p>informasi-2</p>
+                            <p>informasi-3</p>
+                        </div>
+                </li>
+                <li class="one_quarter">
+                        <figure><img src="{{asset('images/demo/gallery/01.png')}}" alt="">
+                        </figure>
+                        <div class = "w-100 text-left">
+                            <b>Judul</b>
+                            <p>informasi-1</p>
+                            <p>informasi-2</p>
+                            <p>informasi-3</p>
+                        </div>
+                </li>
+                <li class="one_quarter first">
+                        <figure><img src="{{asset('images/demo/gallery/01.png')}}" alt="">
+                        </figure>
+                        <div class = "w-100 text-left">
+                            <b>Judul</b>
+                            <p>informasi-1</p>
+                            <p>informasi-2</p>
+                            <p>informasi-3</p>
+                        </div>
+                </li>
+                <li class="one_quarter">
+                        <figure><img src="{{asset('images/demo/gallery/01.png')}}" alt="">
+                        </figure>
+                        <div class = "w-100 text-left">
+                            <b>Judul</b>
+                            <p>informasi-1</p>
+                            <p>informasi-2</p>
+                            <p>informasi-3</p>
+                        </div>
+                </li>
+                <li class="one_quarter">
+                        <figure><img src="{{asset('images/demo/gallery/01.png')}}" alt="">
+                        </figure>
+                        <div class = "w-100 text-left">
+                            <b>Judul</b>
+                            <p>informasi-1</p>
+                            <p>informasi-2</p>
+                            <p>informasi-3</p>
+                        </div>
+                </li>
+                <li class="one_quarter">
+                        <figure><img src="{{asset('images/demo/gallery/01.png')}}" alt="">
+                        </figure>
+                        <div class = "w-100 text-left">
+                            <b>Judul</b>
+                            <p>informasi-1</p>
+                            <p>informasi-2</p>
+                            <p>informasi-3</p>
+                        </div>
+                </li>
+                <li class="one_quarter first">
+                        <figure><img src="{{asset('images/demo/gallery/01.png')}}" alt="">
+                        </figure>
+                        <div class = "w-100 text-left">
+                            <b>Judul</b>
+                            <p>informasi-1</p>
+                            <p>informasi-2</p>
+                            <p>informasi-3</p>
+                        </div>
+                </li>
+                <li class="one_quarter">
+                        <figure><img src="{{asset('images/demo/gallery/01.png')}}" alt="">
+                        </figure>
+                        <div class = "w-100 text-left">
+                            <b>Judul</b>
+                            <p>informasi-1</p>
+                            <p>informasi-2</p>
+                            <p>informasi-3</p>
+                        </div>
+                </li>
+                <li class="one_quarter">
+                        <figure><img src="{{asset('images/demo/gallery/01.png')}}" alt="">
+                        </figure>
+                        <div class = "w-100 text-left">
+                            <b>Judul</b>
+                            <p>informasi-1</p>
+                            <p>informasi-2</p>
+                            <p>informasi-3</p>
+                        </div>
+                </li>
+                <li class="one_quarter">
+                        <figure><img src="{{asset('images/demo/gallery/01.png')}}" alt="">
+                        </figure>
+                        <div class = "w-100 text-left">
+                            <b>Judul</b>
+                            <p>informasi-1</p>
+                            <p>informasi-2</p>
+                            <p>informasi-3</p>
+                        </div>
+                </li>
+                <li class="one_quarter first">
+                        <figure><img src="{{asset('images/demo/gallery/01.png')}}" alt="">
+                        </figure>
+                        <div class = "w-100 text-left">
+                            <b>Judul</b>
+                            <p>informasi-1</p>
+                            <p>informasi-2</p>
+                            <p>informasi-3</p>
+                        </div>
+                </li>
+                <li class="one_quarter">
+                        <figure><img src="{{asset('images/demo/gallery/01.png')}}" alt="">
+                        </figure>
+                        <div class = "w-100 text-left">
+                            <b>Judul</b>
+                            <p>informasi-1</p>
+                            <p>informasi-2</p>
+                            <p>informasi-3</p>
+                        </div>
+                </li>
+                <li class="one_quarter">
+                        <figure><img src="{{asset('images/demo/gallery/01.png')}}" alt="">
+                        </figure>
+                        <div class = "w-100 text-left">
+                            <b>Judul</b>
+                            <p>informasi-1</p>
+                            <p>informasi-2</p>
+                            <p>informasi-3</p>
+                        </div>
+                </li>
+                <li class="one_quarter">
+                        <figure><img src="{{asset('images/demo/gallery/01.png')}}" alt="">
+                        </figure>
+                        <div class = "w-100 text-left">
+                            <b>Judul</b>
+                            <p>informasi-1</p>
+                            <p>informasi-2</p>
+                            <p>informasi-3</p>
+                        </div>
+                </li>
+                
+            </ul>
             <div class="clear"></div>
         </main>
     </div>

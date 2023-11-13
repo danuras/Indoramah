@@ -95,32 +95,29 @@
                             <figcaption>Nama-Pelanggan-8</figcaption>
                         </figure>
                 </li>
-                
-            </ul>
-            <ul class="nospace clear services">
                 <li class="one_quarter first">
                         <figure><img src="{{asset('images/demo/gallery/01.png')}}" alt="">
-                            <figcaption>Nama-Pelanggan-1</figcaption>
+                            <figcaption>Nama-Pelanggan-8</figcaption>
                         </figure>
                 </li>
                 <li class="one_quarter">
                         <figure><img src="{{asset('images/demo/gallery/01.png')}}" alt="">
-                            <figcaption>Nama-Pelanggan-2</figcaption>
+                            <figcaption>Nama-Pelanggan-6</figcaption>
                         </figure>
                 </li>
                 <li class="one_quarter">
                         <figure><img src="{{asset('images/demo/gallery/01.png')}}" alt="">
-                            <figcaption>Nama-Pelanggan-3</figcaption>
+                            <figcaption>Nama-Pelanggan-7</figcaption>
                         </figure>
                 </li>
                 <li class="one_quarter">
                         <figure><img src="{{asset('images/demo/gallery/01.png')}}" alt="">
-                            <figcaption>Nama-Pelanggan-4</figcaption>
+                            <figcaption>Nama-Pelanggan-8</figcaption>
                         </figure>
                 </li>
                 <li class="one_quarter first">
                         <figure><img src="{{asset('images/demo/gallery/01.png')}}" alt="">
-                            <figcaption>Nama-Pelanggan-5</figcaption>
+                            <figcaption>Nama-Pelanggan-8</figcaption>
                         </figure>
                 </li>
                 <li class="one_quarter">

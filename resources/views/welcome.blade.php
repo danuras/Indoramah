@@ -172,7 +172,7 @@
             </div>
             <div class="group btmspace-50 center">
                 <div class="one_quarter first">
-                    <a href="services/services-example">
+                    <a href="services/services-example-2">
                         <div class="image-container">
                             <img src="{{asset('images/demo/gallery/02.png')}}" alt="Deskripsi Gambar">
                             <div class="image-text">Jasa 5</div>
@@ -180,7 +180,7 @@
                     </a>
                 </div>
                 <div class="one_quarter">
-                    <a href="services/services-example">
+                    <a href="services/services-example-2">
                         <div class="image-container">
                             <img src="{{asset('images/demo/gallery/02.png')}}" alt="Deskripsi Gambar">
                             <div class="image-text">Jasa 6</div>
@@ -188,7 +188,7 @@
                     </a>
                 </div>
                 <div class="one_quarter">
-                    <a href="services/services-example">
+                    <a href="services/services-example-2">
                         <div class="image-container">
                             <img src="{{asset('images/demo/gallery/02.png')}}" alt="Deskripsi Gambar">
                             <div class="image-text">Jasa 7</div>
@@ -196,7 +196,7 @@
                     </a>
                 </div>
                 <div class="one_quarter">
-                    <a href="services/services-example">
+                    <a href="services/services-example-2">
                         <div class="image-container">
                             <img src="{{asset('images/demo/gallery/02.png')}}" alt="Deskripsi Gambar">
                             <div class="image-text">Jasa 8</div>
@@ -204,6 +204,7 @@
                     </a>
                 </div>
             </div>
+            <p class="center"><a class="btn inverse" href="services">Tampilkan Semua</a></p>
             <div class="clear"></div>
         </main>
     </div>

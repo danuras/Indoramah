@@ -18,7 +18,6 @@ class ContentTypeFactory extends Factory
     public function definition(): array
     {
         return [
-            
             'image_url' => 'images/demo/gallery/01.png',
             'title' => $this->faker->text(10),
             'text' => $this->faker->text(40),

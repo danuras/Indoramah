@@ -97,7 +97,7 @@
 	text-align: center;
 }
 
-.services li:nth-child(-n+4) {
+.services li:nth-child(-n+12) {
 	margin-bottom: 30px;
 }
 
@@ -1251,4 +1251,20 @@ table a,
 .text_left {
 	text-align: left;
 	width: 100%;
+}
+
+/* Content Card */
+.content_card_1 li{
+	background-color: black;
+	padding: 10px;
+}
+.content_card_2 li{
+	padding-top: 30px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	
+	border: #000000 1px solid;
+	border-radius: 4px;
+	background-color: transparent;
 }
