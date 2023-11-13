@@ -10,9 +10,6 @@
 
 <body id="top">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
 
     <div class="bgded overlay" style="background-image:url({{ asset('images/demo/backgrounds/01.png') }});">
         <div class="wrapper">
@@ -63,11 +60,6 @@
     </div>
 
 
-    <!--JAVASCRIPTS -->
-    <script src="{{ asset('layout/scripts/jquery.min.js') }}"></script>
-    <script src="{{ asset('layout/scripts/jquery.backtotop.js') }}"></script>
-    <script src="{{ asset('layout/scripts/jquery.mobilemenu.js') }}"></script>
-    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
 </body>
 
 </html>
