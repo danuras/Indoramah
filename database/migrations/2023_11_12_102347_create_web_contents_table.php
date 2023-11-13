@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('web_contents', function (Blueprint $table) {
             $table->id();
             $table->string('content_type');
-            $table->unsignedBigInteger('card_type_id')->nullable();
+            $table->unsignedBigInteger('card_box_id')->nullable();
             $table->unsignedInteger('rank');
             $table->timestamps();
         });

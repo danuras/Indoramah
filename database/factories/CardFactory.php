@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\CardBox;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,12 @@ class CardFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'image_url' => 'images/demo/gallery/01.png',
+            'title' => $this->faker->text(10),
+            'is_clickable' => $this->faker->boolean,
+            'text' => $this->faker->text(100),
+            'link' => $this->faker->url,
+            'card_box_id' => CardBox::factory(),
         ];
     }
 }

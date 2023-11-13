@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('card_types', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
-            $table->json('teks')->nullable();
+            $table->json('images')->nullable();
+            $table->longText('text')->nullable();
             $table->string('whatsapp_message')->nullable();
             $table->string('type')->nullable();
             $table->string('sub_content_title')->nullable();

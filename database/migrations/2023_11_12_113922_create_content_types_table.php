@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('image_url')->nullable();
             $table->string('title')->nullable();
-            $table->longText('teks')->nullable();
+            $table->longText('text')->nullable();
             $table->unsignedBigInteger('card_type_id');
             
             $table->foreign('card_type_id')->references('id')->on('card_types')->onDelete('cascade')->onUpdate('cascade');

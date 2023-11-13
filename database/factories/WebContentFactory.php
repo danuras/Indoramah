@@ -18,6 +18,7 @@ class WebContentFactory extends Factory
     {
         return [
             'content_type' => 'card',
+            'card_box_id' => null,
             'rank' => $this->faker->numberBetween(1,4),
         ];
     }

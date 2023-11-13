@@ -14,10 +14,9 @@ return new class extends Migration
         Schema::create('cards', function (Blueprint $table) {
             $table->id();
             $table->string('image_url')->nullable();
-            $table->json('images')->nullable();
             $table->string('title')->nullable();
             $table->boolean('is_clickable')->default(false);
-            $table->longText('teks')->nullable();
+            $table->longText('text')->nullable();
             $table->string('link')->nullable();
             $table->unsignedBigInteger('card_box_id');
             

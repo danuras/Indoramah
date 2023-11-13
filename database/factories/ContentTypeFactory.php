@@ -21,7 +21,7 @@ class ContentTypeFactory extends Factory
             
             'image_url' => 'images/demo/gallery/01.png',
             'title' => $this->faker->text(10),
-            'teks' => $this->faker->text(40),
+            'text' => $this->faker->text(40),
             'card_type_id' => CardType::factory(),
         ];
     }

@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->string('whatsapp');
-            $table->string('whatsapp_messsage');
+            $table->string('whatsapp_message');
             $table->string('call_number');
             $table->string('address');
             $table->string('email');
             $table->string('info_contact');
-            $table->string('embeded_map_url');
+            $table->longText('embeded_map_url');
             $table->string('info_location');
             $table->string('background_contact');
             $table->timestamps();
