@@ -14,39 +14,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <!-- Bagian Header -->
-    <div class="bgded overlay" style="background-image:url({{asset('images/demo/backgrounds/01.png')}});">
-        <div class="wrapper row1">
-            <header id="header" class="hoc clear">
-                <div id="logo" class="fl_left">
-                    <h1><a href="{{route('home')}}">Indoramah</a></h1>
-                </div>
-                <nav id="mainav" class="fl_right">
-                    <ul class="clear">
-                        <li><a href="{{route('home')}}">Home</a></li>
-                        <li><a class="drop" href="#">Tentang Kami</a>
-                            <ul>
-                                <li>
-                                    <a href="{{route('company-profile')}}">Profil Perusahaan</a>
-                                </li>
-                                <li>
-                                    <a href="{{route('advantage')}}">Keunggulan Indoramah</a>
-                                </li>
-                                <li>
-                                    <a href="{{route('order-step')}}">Cara Pemesanan</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a href="{{route('portfolio')}}">Portfolio</a></li>
-                        <li><a href="{{route('home')}}#services">Jasa & Produk</a></li>
-                        <li><a href="{{route('customer')}}">Pelanggan</a></li>
-                        <li><a href="{{route('home')}}#testimonies">Testimoni</a></li>
-                        <li><a href="{{route('blog')}}">Blog</a></li>
-                        <li><a href="{{route('home')}}#location">Lokasi</a></li>
-                    </ul>
-                </nav>
-            </header>
-        </div>
-    </div>
+    @include('components.small-heading-web')
     <div class="wrapper row3" id = 'portfolio'>
         <main class="hoc container clear">
             <div class="btmspace-50 center">
