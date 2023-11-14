@@ -14,7 +14,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <!-- Bagian Header -->
-    @include('components.small-heading-web')
+    @include('components.small-heading-web', [
+        'web_attribute' => $web_attribute,
+        'navigations' => $navigations,
+        'card_boxes' => $card_boxes,
+    ])
 
     <!-- Bagian list blog -->
     <div class="wrapper row3" id="blog">
@@ -23,130 +27,64 @@
                 <h3 class="btmspace-10">Blog</h3>
             </div>
             <div class="latest">
-                <article class="clear">
-                    <div class="one_half first"><a class="iblock borderedbox inspace-10" href="#"><img
-                                src="{{ asset('images/demo/540x333.png') }}" alt=""></a></div>
-                    <div class="one_half">
-                        <h3 class="heading">Elementum scelerisque nisi id sollicitudin tellus vivamus id convallis
-                            tellus</h3>
-                        <ul class="nospace meta">
-                            <li>
-                                <time datetime="2045-04-06">6<sup>th</sup> April 2045</time>
-                            </li>
-                            <li>by <a href="https://www.danforblog.com/author/danforblog/">Admin</a></li>
-                        </ul>
-                        <p>Nullam tristique nulla sit amet tortor eleifend vitae tempor est mattis praesent aliquam
-                            mauris sem id convallis ipsum posuere vel cras porttitor turpis turpis tincidunt hendrerit
-                            urna&hellip;</p>
-                        <footer><a class="btn"
-                                href="https://www.danforblog.com/pengertian-dan-cara-membuat-blog-dummy/">Read More</a>
-                        </footer>
-                    </div>
-                </article>
-                <article class="clear">
-                    <div class="one_half first">
-                        <h3 class="heading">Aliquam vel quisque nec dolor ullamcorper lacinia ut nec dictum ipsum</h3>
-                        <ul class="nospace meta">
-                            <li>
-                                <time datetime="2045-04-05">5<sup>th</sup> April 2045</time>
-                            </li>
-                            <li>by <a href="https://www.danforblog.com/author/danforblog/">Admin</a></li>
-                        </ul>
-                        <p>Sed vulputate mauris proin fermentum vitae diam non hendrerit vivamus pharetra interdum augue
-                            ut dignissim aenean placerat lectus ullamcorper malesuada sodales massa urna
-                            pulvinar&hellip;</p>
-                        <footer><a class="btn"
-                                href="https://www.danforblog.com/pengertian-dan-cara-membuat-blog-dummy/">Read More</a>
-                        </footer>
-                    </div>
-                    <div class="one_half"><a class="iblock borderedbox inspace-10" href="#"><img
-                                src="{{ asset('images/demo/540x333.png') }}" alt=""></a></div>
-                </article>
-                <article class="clear">
-                    <div class="one_half first"><a class="iblock borderedbox inspace-10" href="#"><img
-                                src="{{ asset('images/demo/540x333.png') }}" alt=""></a></div>
-                    <div class="one_half">
-                        <h3 class="heading">Elementum scelerisque nisi id sollicitudin tellus vivamus id convallis
-                            tellus</h3>
-                        <ul class="nospace meta">
-                            <li>
-                                <time datetime="2045-04-06">6<sup>th</sup> April 2045</time>
-                            </li>
-                            <li>by <a href="https://www.danforblog.com/author/danforblog/">Admin</a></li>
-                        </ul>
-                        <p>Nullam tristique nulla sit amet tortor eleifend vitae tempor est mattis praesent aliquam
-                            mauris sem id convallis ipsum posuere vel cras porttitor turpis turpis tincidunt hendrerit
-                            urna&hellip;</p>
-                        <footer><a class="btn"
-                                href="https://www.danforblog.com/pengertian-dan-cara-membuat-blog-dummy/">Read More</a>
-                        </footer>
-                    </div>
-                </article>
-                <article class="clear">
-                    <div class="one_half first">
-                        <h3 class="heading">Aliquam vel quisque nec dolor ullamcorper lacinia ut nec dictum ipsum</h3>
-                        <ul class="nospace meta">
-                            <li>
-                                <time datetime="2045-04-05">5<sup>th</sup> April 2045</time>
-                            </li>
-                            <li>by <a href="https://www.danforblog.com/author/danforblog/">Admin</a></li>
-                        </ul>
-                        <p>Sed vulputate mauris proin fermentum vitae diam non hendrerit vivamus pharetra interdum augue
-                            ut dignissim aenean placerat lectus ullamcorper malesuada sodales massa urna
-                            pulvinar&hellip;</p>
-                        <footer><a class="btn"
-                                href="https://www.danforblog.com/pengertian-dan-cara-membuat-blog-dummy/">Read More</a>
-                        </footer>
-                    </div>
-                    <div class="one_half"><a class="iblock borderedbox inspace-10" href="#"><img
-                                src="{{ asset('images/demo/540x333.png') }}" alt=""></a></div>
-                </article>
-                <article class="clear">
-                    <div class="one_half first"><a class="iblock borderedbox inspace-10" href="#"><img
-                                src="{{ asset('images/demo/540x333.png') }}" alt=""></a></div>
-                    <div class="one_half">
-                        <h3 class="heading">Elementum scelerisque nisi id sollicitudin tellus vivamus id convallis
-                            tellus</h3>
-                        <ul class="nospace meta">
-                            <li>
-                                <time datetime="2045-04-06">6<sup>th</sup> April 2045</time>
-                            </li>
-                            <li>by <a href="https://www.danforblog.com/author/danforblog/">Admin</a></li>
-                        </ul>
-                        <p>Nullam tristique nulla sit amet tortor eleifend vitae tempor est mattis praesent aliquam
-                            mauris sem id convallis ipsum posuere vel cras porttitor turpis turpis tincidunt hendrerit
-                            urna&hellip;</p>
-                        <footer><a class="btn"
-                                href="https://www.danforblog.com/pengertian-dan-cara-membuat-blog-dummy/">Read More</a>
-                        </footer>
-                    </div>
-                </article>
-                <article class="clear">
-                    <div class="one_half first">
-                        <h3 class="heading">Aliquam vel quisque nec dolor ullamcorper lacinia ut nec dictum ipsum</h3>
-                        <ul class="nospace meta">
-                            <li>
-                                <time datetime="2045-04-05">5<sup>th</sup> April 2045</time>
-                            </li>
-                            <li>by <a href="https://www.danforblog.com/author/danforblog/">Admin</a></li>
-                        </ul>
-                        <p>Sed vulputate mauris proin fermentum vitae diam non hendrerit vivamus pharetra interdum augue
-                            ut dignissim aenean placerat lectus ullamcorper malesuada sodales massa urna
-                            pulvinar&hellip;</p>
-                        <footer><a class="btn"
-                                href="https://www.danforblog.com/pengertian-dan-cara-membuat-blog-dummy/">Read More</a>
-                        </footer>
-                    </div>
-                    <div class="one_half"><a class="iblock borderedbox inspace-10" href="#"><img
-                                src="{{ asset('images/demo/540x333.png') }}" alt=""></a></div>
-                </article>
+                @for ($i = 0; $i < sizeof($blogs) / 2; $i++)
+                    @if (isset($blogs[$i * 2]))
+                        <article class="clear">
+                            <div class="one_half first"><a class="iblock borderedbox inspace-10" href=""><img
+                                        src="{{ asset($blogs[$i * 2]->image_url) }}" alt=""></a></div>
+                            <div class="one_half">
+                                <h3 class="heading">{{ $blogs[$i * 2]->title }}</h3>
+                                <ul class="nospace meta">
+                                    <li><time
+                                            datetime="{{ $blogs[$i * 2]->date_published }}">{{ $blogs[$i * 2]->date_published }}</time>
+                                    </li>
+                                    <li>Oleh {{ $blogs[$i * 2]->author }}</li>
+                                </ul>
+                                <p>{{ substr($blogs[$i * 2]->text, 0, 400) }}&hellip;</p>
+                                <footer>
+                                    <a class="btn" href="{{ $blogs[$i * 2]->link }}">Baca</a>
+                                </footer>
+                            </div>
+                        </article>
+                    @endif
+                    @if (isset($blogs[$i * 2 + 1]))
+                        <article class="clear">
+                            <div class="one_half first">
+                                <h3 class="heading">{{ $blogs[$i * 2 + 1]->title }}</h3>
+                                <ul class="nospace meta">
+                                    <li><time
+                                            datetime="{{ $blogs[$i * 2 + 1]->date_published }}">{{ $blogs[$i * 2 + 1]->date_published }}</time>
+                                    </li>
+                                    <li>Oleh {{ $blogs[$i * 2 + 1]->author }}</li>
+                                </ul>
+                                <p>{{ substr($blogs[$i * 2 + 1]->text, 0, 400) }}&hellip;</p>
+                                <footer>
+                                    <a class="btn" href="{{ $blogs[$i * 2 + 1]->link }}">Baca</a>
+                                </footer>
+                            </div>
+                            <div class="one_half">
+                                <a class="iblock borderedbox inspace-10" href="">
+                                    <img src="{{ asset($blogs[$i * 2 + 1]->image_url) }}" alt="">
+                                </a>
+                            </div>
+                        </article>
+                    @endif
+                @endfor
+            </div>
+            <div class="text-xs-center">
+                {!! $blogs->links('vendor.pagination.bootstrap-4') !!}
             </div>
             <br><br>
             <div class="clear"></div>
         </section>
     </div>
 
-    @include('components.footer')
+    @include('components.footer', [
+        'web_attribute' => $web_attribute,
+        'contact' => $contact,
+        'navigations' => $navigations,
+        'social_media' => $social_media,
+    ])
 
     <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
     <!-- JAVASCRIPTS -->

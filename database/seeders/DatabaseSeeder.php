@@ -13,6 +13,7 @@ use App\Models\CompanyProfile;
 use App\Models\Contact;
 use App\Models\ContentType;
 use App\Models\OrderFlow;
+use App\Models\SocialMedia;
 use App\Models\Testimony;
 use App\Models\User;
 use App\Models\WebAttribute;
@@ -39,14 +40,13 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('password'),
             'is_primary' => true,
         ]);
-        Contact::factory()->create();
         WebAttribute::factory()->create();
         CompanyProfile::factory()->create();
-        OrderFlow::factory()->count(4)->create();
+        OrderFlow::factory()->count(5)->create();
 
         // Section 1
         $cb = CardBox::factory()->create([
-            'type' => 'card-1',
+            'card_type' => 'card-1',
         ]);
         $wc = WebContent::factory()->create([
             'content_type' => 'card',
@@ -64,9 +64,10 @@ class DatabaseSeeder extends Seeder
             <p>produk-1</p>
             <p>produk-2</p>
             <p>produk-3</p>',
-            'image_url' => null,
+            'image_url' => 'images/demo/gallery/01.png',
             'title' => null,
             'is_clickable' => false,
+            'content_type' => null,
             'link' => 'https://youtu.be/D0UnqGm_miA?si=D6-iTD8XRNNYgRzb',
             'card_box_id' => $cb->id,
         ]);
@@ -75,15 +76,14 @@ class DatabaseSeeder extends Seeder
         // Section 2
         WebContent::factory()->create([
             'content_type' => 'advantage',
-            'card_box_id' => $cb->id,
             'rank' => 2,
         ]);
         Advantage::factory()->create();
-        AdvantageContent::factory()->count(4)->create();
+        AdvantageContent::factory()->count(10)->create();
 
         // Section 3
         $cb = CardBox::factory()->create([
-            'type' => 'card-2',
+            'card_type' => 'card-2',
         ]);
         $wc = WebContent::factory()->create([
             'content_type' => 'card',
@@ -98,11 +98,11 @@ class DatabaseSeeder extends Seeder
                     'link' => null,
                     'text' => null,
                     'is_clickable' => true,
+                    'content_type' => $type,
                     'card_box_id' => $cb->id,
                 ]);
 
                 $ct = CardType::factory()->create([
-                    'type' => $type,
                     'images' => json_encode([
                         'images/demo/gallery/02.png',
                         'images/demo/gallery/02.png',
@@ -112,11 +112,19 @@ class DatabaseSeeder extends Seeder
                 ]);
                 ContentType::factory()->count(20)->create([
                     'card_type_id' => $ct->id,
+
+                    'text' => '<div class = "w-100 text-left">
+                    <b>Judul</b>
+                    <p>informasi-1</p>
+                    <p>informasi-2</p>
+                    <p>informasi-3</p>
+                </div>',
                 ]);
             } else {
                 $c = Card::factory()->create([
                     'image_url' => 'images/demo/gallery/02.png',
                     'text' => null,
+                    'content_type' => $type,
                     'link' => null,
                     'is_clickable' => true,
                     'card_box_id' => $cb->id,
@@ -125,19 +133,23 @@ class DatabaseSeeder extends Seeder
                 $ct = CardType::factory()->create([
                     'text' => null,
                     'images' => null,
-                    'type' => $type,
                     'card_id' => $c->id,
                 ]);
-                ContentType::factory()->count(4)->create([
+                ContentType::factory()->count(20)->create([
                     'image_url' => null,
+                    'text' => '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, error.</p>
+                    <hr>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus voluptatem numquam voluptates
+                        esse facilis aperiam aspernatur sunt quia, odit enim?</p>',
                     'card_type_id' => $ct->id,
+
                 ]);
             }
         }
 
         // Section 4
         $cb = CardBox::factory()->create([
-            'type' => 'card-3',
+            'card_type' => 'card-3',
         ]);
         $wc = WebContent::factory()->create([
             'content_type' => 'card',
@@ -148,6 +160,7 @@ class DatabaseSeeder extends Seeder
             'text' => null,
             'is_clickable' => false,
             'link' => null,
+            'content_type' => null,
             'card_box_id' => $cb->id,
         ]);
 
@@ -165,6 +178,16 @@ class DatabaseSeeder extends Seeder
             'card_box_id' => null,
             'rank' => 6,
         ]);
-        Blog::factory()->count(4)->create();
+        Blog::factory()->count(10)->create();
+
+        // section 7
+        $wc = WebContent::factory()->create([
+            'content_type' => 'maps',
+            'card_box_id' => null,
+            'rank' => 7,
+        ]);
+        Contact::factory()->create();
+
+        SocialMedia::factory()->create();
     }
 }

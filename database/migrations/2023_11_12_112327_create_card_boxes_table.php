@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('card_boxes', function (Blueprint $table) {
             $table->id();
-            $table->string('type');
+            $table->string('card_type');
             $table->string('title');
             $table->string('info');
             $table->timestamps();

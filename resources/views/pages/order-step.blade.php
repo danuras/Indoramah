@@ -15,45 +15,75 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <!-- Bagian Header -->
-    @include('components.small-heading-web')
+    @include('components.small-heading-web', [
+        'web_attribute' => $web_attribute,
+        'navigations' => $navigations,
+        'card_boxes' => $card_boxes,
+    ])
 
     <div class="wrapper row3" id="customers">
         <main class="hoc container clear">
             <div class="btmspace-50 center">
-                <h3 class="btmspace-10">Standard Operating Procedure (SOP) Proses Pemesanan Produk Indoramah
+                <h3 class="btmspace-10">Standard Operating Procedure (SOP) Proses Pemesanan Produk {{$web_attribute->title}}
                 </h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat omnis aliquam porro odio laborum
-                    dolorum nulla cupiditate ipsa velit voluptate.</p>
                 <br><br>
-                <div class="group btmspace-50 demo">
-                    <div class="one_quarter first">
-                        <figure><img class="circle" src="{{ asset('images/demo/60x60.png') }}" alt=""></figure>
-                        <br>
-                        <p>1. langkah pertama</p>
+                @for ($i = 0; $i < sizeof($order_steps)/4; $i++)
+                    <div class="group btmspace-50 demo">
+                        @if(isset($order_steps[$i*4]))
+                            <div class="one_quarter first">
+                                <figure><img class="circle" src="{{ asset($order_steps[$i*4]->icon) }}" alt=""></figure>
+                                <br>
+                                <p>{{$i*4+1}}. {{$order_steps[$i*4]->value}}</p>
+                            </div>
+                        @else
+                            <div class="one_quarter first">
+                            </div>
+                        @endif
+                        @if(isset($order_steps[$i*4+1]))
+                            <div class="one_quarter">
+                                <figure><img class="circle" src="{{ asset($order_steps[$i*4+1]->icon) }}" alt=""></figure>
+                                <br>
+                                <p>{{$i*4+2}}. {{$order_steps[$i*4+1]->value}}</p>
+                            </div>
+                        @else
+                            <div class="one_quarter">
+                            </div>
+                        @endif
+                        @if(isset($order_steps[$i*4+2]))
+                            <div class="one_quarter">
+                                <figure><img class="circle" src="{{ asset($order_steps[$i*4+2]->icon) }}" alt=""></figure>
+                                <br>
+                                <p>{{$i*4+3}}. {{$order_steps[$i*4+2]->value}}</p>
+                            </div>
+                        @else
+                            <div class="one_quarter">
+                            </div>
+                        @endif
+                        @if(isset($order_steps[$i*4+3]))
+                            <div class="one_quarter">
+                                <figure><img class="circle" src="{{ asset($order_steps[$i*4+3]->icon) }}" alt=""></figure>
+                                <br>
+                                <p>{{$i*4+4}}. {{$order_steps[$i*4+3]->value}}</p>
+                            </div>
+                        @else
+                            <div class="one_quarter">
+                            </div>
+                        @endif
                     </div>
-                    <div class="one_quarter">
-                        <figure><img class="circle" src="{{ asset('images/demo/60x60.png') }}" alt=""></figure>
-                        <br>
-                        <p>1. langkah kedua</p>
-                    </div>
-                    <div class="one_quarter">
-                        <figure><img class="circle" src="{{ asset('images/demo/60x60.png') }}" alt=""></figure>
-                        <br>
-                        <p>1. langkah ketiga</p>
-                    </div>
-                    <div class="one_quarter">
-                        <figure><img class="circle" src="{{ asset('images/demo/60x60.png') }}" alt=""></figure>
-                        <br>
-                        <p>1. langkah keempat</p>
-                    </div>
-                </div>
+                @endfor
+                
             </div>
 
             <div class="clear"></div>
         </main>
     </div>
-
-    @include('components.footer')
+    
+    @include('components.footer', [
+        'web_attribute' => $web_attribute,
+        'contact' => $contact,
+        'navigations' => $navigations,
+        'social_media' => $social_media,
+    ])
 
     <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
     <!-- JAVASCRIPTS -->

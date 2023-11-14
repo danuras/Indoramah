@@ -17,7 +17,6 @@ return new class extends Migration
             $table->json('images')->nullable();
             $table->longText('text')->nullable();
             $table->string('whatsapp_message')->nullable();
-            $table->string('type')->nullable();
             $table->string('sub_content_title')->nullable();
             $table->unsignedBigInteger('card_id');
             

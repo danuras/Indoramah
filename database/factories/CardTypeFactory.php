@@ -20,9 +20,13 @@ class CardTypeFactory extends Factory
         return [
             'title' => $this->faker->text(20),
             'images' => json_encode([]),
-            'text' => $this->faker->text(40),
+            'text' => '<p  class="text_left">(penjelasan) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae voluptas doloremque sapiente modi ducimus doloribus dignissimos iusto illo ut quaerat, aliquam, vero accusamus ratione nobis. Eligendi, quod ducimus? Distinctio sed, quos, quod provident illo nobis dolore commodi voluptates fugiat corrupti, eaque unde voluptatum dolorum! Nesciunt officiis excepturi quos beatae, dolorem dicta voluptatibus quis laboriosam voluptatem earum consequatur neque quo ut maiores, incidunt totam atque nobis sequi. Molestiae, ratione iste molestias voluptatum saepe itaque tempore, atque nihil dicta ipsum aliquid odit!</p>
+            <ul>
+                <li><p class="text_left"><u>Lorem ipsum</u> dolor sit, amet consectetur adipisicing elit. Praesentium, aspernatur.</p></li>
+                <li><p class="text_left"><u>Lorem ipsum</u> dolor sit, amet consectetur adipisicing elit. Praesentium, aspernatur.</p></li>
+                <li><p class="text_left"><u>Lorem ipsum</u> dolor sit, amet consectetur adipisicing elit. Praesentium, aspernatur.</p></li>
+            </ul>',
             'whatsapp_message' => $this->faker->text(20),
-            'type' => 'content-1',
             'sub_content_title' => $this->faker->text(10),
             'card_id' => Card::factory(),
         ];

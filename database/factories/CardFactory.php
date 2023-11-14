@@ -22,6 +22,7 @@ class CardFactory extends Factory
             'title' => $this->faker->text(10),
             'is_clickable' => $this->faker->boolean,
             'text' => $this->faker->text(100),
+            'content_type' => 'content-1',
             'link' => $this->faker->url,
             'card_box_id' => CardBox::factory(),
         ];

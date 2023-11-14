@@ -21,7 +21,7 @@ class BlogFactory extends Factory
             'image_url' => 'images/demo/540x333.png',
             'date_published' => $this->faker->dateTime,
             'author' => $this->faker->name,
-            'text' => $this->faker->text(80),
+            'text' => $this->faker->text(500),
             'link'=> 'https://www.danforblog.com/pengertian-dan-cara-membuat-blog-dummy/',
         ];
     }

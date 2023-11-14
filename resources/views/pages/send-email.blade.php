@@ -14,28 +14,21 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <!-- Bagian Header -->
-    @include('components.small-heading-web')
-
-    <div class="wrapper row3" style="background-image:url({{ asset('images/demo/backgrounds/01.png') }});">
+    @include('components.small-heading-web', [
+        'web_attribute' => $web_attribute,
+        'navigations' => $navigations,
+        'card_boxes' => $card_boxes,
+    ])
+    <div class="wrapper row3" style="background-image:url({{ asset($contact->background_contact) }});">
         <main class="hoc container clear">
             <div class="group btmspace-50 center">
                 <div class="two_quarter first mail_box">
-                    <h3>Kami Siap Melayani Anda Pesan Sekarang!</h3>
-                    <p>Waktu Operasional:</p>
-                    <p>Senin s/d Sabtu (Kecuali Hari Libur Nasional)</p>
-                    <p>8:00 s/d 17:00 WIB</p>
-                    <p>Anda dapat menghubungi kami melalui:</p>
-                    <p>Telepon: +62 888-8888-888</p>
-                    <p>Whatsapp: +62 888-8888-888</p>
-                    <p>Email: admin@gmail.com</p>
-                    <p class="text_left">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia esse facere
-                        voluptatem quam reiciendis quod corrupti alias, cumque aliquid provident magnam voluptates
-                        similique ducimus qui. Dolore autem minima reiciendis architecto?</p>
+                    {!! $contact->info_contact !!}
                     <br>
                     <br>
                     <footer><a class="btn"
-                            href="https://wa.me/6283102377495?text=Hai%20INDORAMAH !%20Saya%20ingin%20tanya%20seputar%20jasa%20anda."><i
-                                class="fa fa-whatsapp my-float"></i> (WA) Hubungi - 0888 8888 8888</a></footer>
+                            href="https://wa.me/{{$contact->whatsapp}}?text={{$contact->whatsapp_message}}."><i
+                                class="fa fa-whatsapp my-float"></i> (WA) Hubungi - {{$contact->whatsapp}}</a></footer>
                 </div>
                 <div class="two_quarter  mail_box" id="comments">
                     <h3>Kirim Email</h3>
@@ -81,7 +74,12 @@
         </main>
     </div>
 
-    @include('components.footer')
+    @include('components.footer', [
+        'web_attribute' => $web_attribute,
+        'contact' => $contact,
+        'navigations' => $navigations,
+        'social_media' => $social_media,
+    ])
 
     <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
     <!-- JAVASCRIPTS -->

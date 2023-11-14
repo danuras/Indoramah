@@ -18,8 +18,8 @@ class AdvantageFactory extends Factory
     {
         return [
             'title' => $this->faker->text(10),
-            'description' => $this->faker->text(40),
-            'image_url' => 'images/demo/60x60.png',
+            'description' => $this->faker->text(500),
+            'image_url' => 'images/demo/gallery/01.png',
         ];
     }
 }

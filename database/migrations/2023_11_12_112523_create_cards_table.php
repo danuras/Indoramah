@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('image_url')->nullable();
             $table->string('title')->nullable();
+            $table->string('content_type')->nullable();
             $table->boolean('is_clickable')->default(false);
             $table->longText('text')->nullable();
             $table->string('link')->nullable();

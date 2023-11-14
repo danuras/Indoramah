@@ -19,6 +19,7 @@ class WebAttributeFactory extends Factory
         return [
             'title' => $this->faker->text(6),
             'icon' => 'images/demo/60x60.png',
+            'short_description' => $this->faker->text(20),
             'long_title' => $this->faker->text(15),
             'main_heading' => $this->faker->text(25),  
             'sub_heading' => $this->faker->text(30),  

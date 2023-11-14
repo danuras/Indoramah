@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NavigationController;
 use App\Http\Controllers\SendMessageController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,49 +15,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', [NavigationController::class, 'home'])->name('home');
 
 Route::post('send-message', [SendMessageController::class, 'send'])->name('send-message');
 
 
-Route::get('advantage', function(){
-    return view('pages.advantage');
-})->name('advantage');
+Route::get('advantage', [NavigationController::class, 'advantage'])->name('advantage');
 
-Route::get('blog', function(){
-    return view('pages.blog');
-})->name('blog');
+Route::get('blog', [NavigationController::class, 'blog'])->name('blog');
 
-Route::get('company-profile', function(){
-    return view('pages.company-profile');
-})->name('company-profile');
+Route::get('company-profile', [NavigationController::class, 'companyProfile'])->name('company-profile');
 
-Route::get('customer', function(){
-    return view('pages.customer');
-})->name('customer');
+Route::get('card-box/{title}/{type}/{id}', [NavigationController::class, 'cardBoxAll'])->name('card-box');
+Route::get('card-content/{title}/{type}/{id}/', [NavigationController::class, 'getContent'])->name('card-content');
 
-Route::get('order-step', function(){
-    return view('pages.order-step');
-})->name('order-step');
+Route::get('order-step', [NavigationController::class, 'orderStep'])->name('order-step');
 
-Route::get('portfolio', function(){
-    return view('pages.portfolio');
-})->name('portfolio');
-
-Route::get('send-email', function(){
-    return view('pages.send-email');
-})->name('send-email');
-
-Route::prefix('services')->group(function(){
-    Route::get('/', function (){
-        return view('pages.services.index');
-    })->name('services');
-    Route::get('services-example', function(){
-        return view('pages.services.services-example');
-    });
-    Route::get('services-example-2', function(){
-        return view('pages.services.services-example-2');
-    });
-});
+Route::get('send-email', [NavigationController::class, 'sendEmail'])->name('send-email');

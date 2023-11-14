@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('call_number');
             $table->string('address');
             $table->string('email');
-            $table->string('info_contact');
+            $table->longText('info_contact');
             $table->longText('embeded_map_url');
-            $table->string('info_location');
+            $table->longText('info_location');
             $table->string('background_contact');
             $table->timestamps();
         });

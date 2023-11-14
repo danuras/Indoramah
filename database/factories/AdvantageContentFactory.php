@@ -19,7 +19,7 @@ class AdvantageContentFactory extends Factory
         return [
             'icon' => 'images/demo/60x60.png',
             'title' => $this->faker->text(5),
-            'teks' => '<h1>Hello World</h1>',
+            'text' => $this->faker->text(200),
         ];
     }
 }

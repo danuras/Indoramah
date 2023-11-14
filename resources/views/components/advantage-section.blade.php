@@ -14,10 +14,10 @@
                 <div class="group center">
                     <div class="group demo">
                         <div class="one_quarter first">
-                            <p class= 'big_text'><b>Brand Yang Bisa Anda Andalkan</b></p><br>
+                            <p class= 'big_text'><b>{{$advantage->title}}</b></p><br>
                         </div>
                         <div class="two_quarter">
-                            <p class = 'left_text'>masukan misi perusahaan. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium repellat, voluptatum excepturi nostrum repudiandae voluptate cum minima iusto quasi soluta cupiditate quidem consequatur quas quis autem perspiciatis eos nam laudantium exercitationem! Reiciendis, autem blanditiis quia voluptatibus omnis in magni earum magnam laudantium ipsum eum nam quaerat perspiciatis. Tempore necessitatibus delectus, quos quasi beatae et pariatur possimus eligendi aliquid officiis ipsam eos repellendus voluptate dignissimos repellat, perferendis minus porro suscipit! Ea sapiente aperiam unde autem numquam itaque nesciunt asperiores est saepe tempora optio fugiat praesentium illum, repudiandae voluptates natus, facilis distinctio non iure veritatis quasi? Quod deserunt adipisci illo facere eos.</p>
+                            <p class = 'left_text'>{{$advantage->description}}</p>
                         </div>
                         <div class="one_quarter">
                             <p class="center"><a class="btn inverse" href="advantage">Keuntungan</a></p>

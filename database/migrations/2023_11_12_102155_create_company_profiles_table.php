@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('company_profiles', function (Blueprint $table) {
             $table->string('title');
-            $table->string('description');
+            $table->longText('description');
             $table->string('image_url');
             $table->string('whatsapp_message');
-            $table->string('mission');
-            $table->string('vision');
+            $table->longText('mission');
+            $table->longText('vision');
             $table->timestamps();
         });
     }

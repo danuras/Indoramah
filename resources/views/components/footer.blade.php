@@ -16,56 +16,124 @@
             <div class="one_quarter first">
                 <h6 class="title">Alamat dan Kontak</h6>
                 <address class="btmspace-30">
-                    Street Name &amp; Number<br>
-                    Town<br>
-                    Postcode/Zip
+                    {{ $contact->address }}
                 </address>
                 <ul class="nospace">
-                    <li class="btmspace-10"><i class="fa fa-phone"></i> +00 (123) 456 7890</li>
-                    <li><i class="fa fa-envelope-o"></i> info@domain.com</li>
+                    <li class="btmspace-10"><i class="fa fa-phone"></i> {{ $contact->call_number }}</li>
+                    <li><i class="fa fa-envelope-o"></i> {{ $contact->email }}</li>
                 </ul>
             </div>
             <div class="one_quarter">
                 <h6 class="title">Tentang</h6>
                 <article>
-                    <h2 class="nospace font-x1"><a href="#">Dictum dui quisque</a></h2>
-                    <time class="font-xs" datetime="2045-04-06">Friday, 6<sup>th</sup> April 2045</time>
-                    <p>Lacinia gravida accumsan proin tincidunt auctor pharetra mauris id luctus tellus morbi eu magna
-                        sit amet.</p>
+                    <h2 class="nospace font-x1">{{ $web_attribute->title }}</h2>
+                    <p>{{ $web_attribute->short_description }}</p>
                 </article>
             </div>
             <div class="one_quarter">
                 <h6 class="title">Menu</h6>
                 <ul class="nospace linklist footer_menu">
                     <li><a href="{{ route('home') }}">Home</a></li>
-                    <li><a href="{{ route('portfolio') }}">Portfolio</a></li>
-                    <li><a href="{{ route('home') }}#services">Jasa & Produk</a></li>
-                    <li><a href="{{ route('customer') }}">Pelanggan</a></li>
-                    <li><a href="{{ route('home') }}#testimonies">Testimoni</a></li>
-                    <li><a href="{{ route('blog') }}">Blog</a></li>
-                    <li><a href="{{ route('home') }}#location">Lokasi</a></li>
+                    @if (in_array('company_profile', $navigations))
+                        <li><a href="{{ route('company-profile') }}">Profil Perusahaan</a></li>
+                    @endif
+                    @if (in_array('advantage', $navigations))
+                        <li><a href="{{ route('advantage') }}">Keunggulan Indoramah</a></li>
+                    @endif
+                    @if (in_array('order_flow', $navigations))
+                        <li><a href="{{ route('order-step') }}">Cara Pemesanan</a></li>
+                    @endif
+                    @if (in_array('testimony', $navigations))
+                        <li><a href="{{ route('home') }}#testimonies">Testimoni</a></li>
+                    @endif
+                    @if (in_array('blog', $navigations))
+                        <li><a href="{{ route('blog') }}">Blog</a></li>
+                    @endif
+                    @if (in_array('location', $navigations))
+                        <li><a href="{{ route('home') }}#location">Lokasi</a></li>
+                    @endif
                 </ul>
             </div>
             <div class="one_quarter" style = "width: 100px;">
                 <h6 class="title">Akun media sosial</h6>
                 <div class="row">
                     <div class="col-md-4">
-                        <div class="box_social_media"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                        @if (isset($social_media->facebook))
+                            <div class="box_social_media">
+                                <a href="{{ $social_media->facebook }}">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        @else
+                            <div class="box_social_media_no_active">
+                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                            </div>
+                        @endif
                     </div>
                     <div class="col-md-4">
-                        <div class="box_social_media"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                        @if (isset($social_media->twitter))
+                            <div class="box_social_media">
+                                <a href="{{ $social_media->twitter }}">
+                                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        @else
+                            <div class="box_social_media_no_active">
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                            </div>
+                        @endif
                     </div>
                     <div class="col-md-4">
-                        <div class="box_social_media"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                        @if (isset($social_media->linkedin))
+                            <div class="box_social_media">
+                                <a href="{{ $social_media->linkedin }}">
+                                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        @else
+                            <div class="box_social_media_no_active">
+                                <i class="fa fa-linkedin" aria-hidden="true"></i>
+                            </div>
+                        @endif
                     </div>
                     <div class="col-md-4">
-                        <div class="box_social_media"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                        @if (isset($social_media->instagram))
+                            <div class="box_social_media">
+                                <a href="{{ $social_media->instagram }}">
+                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        @else
+                            <div class="box_social_media_no_active">
+                                <i class="fa fa-instagram" aria-hidden="true"></i>
+                            </div>
+                        @endif
                     </div>
                     <div class="col-md-4">
-                        <div class="box_social_media"><i class="fa fa-google-plus" aria-hidden="true"></i></div>
+                        @if (isset($social_media->google_plus))
+                            <div class="box_social_media">
+                                <a href="{{ $social_media->google_plus }}">
+                                    <i class="fa fa-google-plus" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        @else
+                            <div class="box_social_media_no_active">
+                                <i class="fa fa-google-plus" aria-hidden="true"></i>
+                            </div>
+                        @endif
                     </div>
                     <div class="col-md-4">
-                        <div class="box_social_media"><i class="fa fa-youtube-play" aria-hidden="true"></i></div>
+                        @if (isset($social_media->youtube))
+                            <div class="box_social_media">
+                                <a href="{{ $social_media->youtube }}">
+                                    <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        @else
+                            <div class="box_social_media_no_active">
+                                <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -74,7 +142,7 @@
     <!-- Footer -->
     <div class="wrapper row5">
         <div id="copyright" class="hoc clear">
-            <p class="fl_left">Indoramah Autometic Gate</a></p>
+            <p class="fl_left">{{ $web_attribute->long_title }}</p>
         </div>
     </div>
 

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Indoramah</title>
+    <title>{{ $web_attribute->title }}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="{{ asset('layout/styles/layout.css') }}" rel="stylesheet" type="text/css" media="all">
@@ -13,23 +13,46 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    @include('components.heading-web')
+    @include('components.heading-web', [
+        'web_attribute' => $web_attribute,
+        'contact' => $contact,
+        'navigations' => $navigations,
+        'card_boxes' => $card_boxes,
+    ])
 
-    @include('components.card-1-section')
+    @foreach ($web_contents as $wc)
+        @if($wc->content_type == 'card')
+            @foreach ($card_boxes as $cb)
+                @if($cb->id == $wc->card_box_id)
+                    @if($cb->card_type == 'card-1')
+                        @include('components.card-1-section', $cb)
+                    @elseif($cb->card_type == 'card-2')
+                        @include('components.card-2-section', $cb)
+                    @elseif($cb->card_type == 'card-3')
+                        @include('components.card-3-section', $cb)
+                    @endif
+                @endif                
+            @endforeach
+        @elseif($wc->content_type == 'advantage')
+            @include('components.advantage-section', $advantage)
+        @elseif($wc->content_type == 'testimony')
+            @include('components.testimonies-section', [
+                'testimonies'=>$testimonies,
+                'background_image' => $web_attribute->background_testimonies,   
+            ])
+        @elseif($wc->content_type == 'blog')
+            @include('components.blog-section', $blogs)
+        @elseif($wc->content_type == 'maps')
+            @include('components.maps', $maps)
+        @endif
+    @endforeach
 
-    @include('components.advantage-section')
-
-    @include('components.card-2-section')
-
-    @include('components.card-3-section')
-
-    @include('components.testimonies-section')
-
-    @include('components.blog-section')
-
-    @include('components.maps')
-
-    @include('components.footer')
+    @include('components.footer', [
+        'web_attribute' => $web_attribute,
+        'contact' => $contact,
+        'navigations' => $navigations,
+        'social_media' => $social_media,
+    ])
 
     <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
     <!-- JAVASCRIPTS -->

@@ -11,55 +11,56 @@
 <body id="top">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-    <div class="wrapper row3" id = "customers">
+    <div class="wrapper row3" id = "{{ $cb->title }}">
         <main class="hoc container clear">
             <div class="btmspace-50 center">
-                <h3 class="btmspace-10">Pelanggan Kami</h3>
+                <h3 class="btmspace-10">{{ $cb->title }}</h3>
             </div>
-            <ul class="nospace clear services">
-                <li class="one_quarter first">
-                    <figure><img src="{{ asset('images/demo/gallery/01.png') }}" alt="">
-                        <figcaption>Nama-Pelanggan-1</figcaption>
-                    </figure>
-                </li>
-                <li class="one_quarter">
-                    <figure><img src="{{ asset('images/demo/gallery/01.png') }}" alt="">
-                        <figcaption>Nama-Pelanggan-2</figcaption>
-                    </figure>
-                </li>
-                <li class="one_quarter">
-                    <figure><img src="{{ asset('images/demo/gallery/01.png') }}" alt="">
-                        <figcaption>Nama-Pelanggan-3</figcaption>
-                    </figure>
-                </li>
-                <li class="one_quarter">
-                    <figure><img src="{{ asset('images/demo/gallery/01.png') }}" alt="">
-                        <figcaption>Nama-Pelanggan-4</figcaption>
-                    </figure>
-                </li>
-                <li class="one_quarter first">
-                    <figure><img src="{{ asset('images/demo/gallery/01.png') }}" alt="">
-                        <figcaption>Nama-Pelanggan-5</figcaption>
-                    </figure>
-                </li>
-                <li class="one_quarter">
-                    <figure><img src="{{ asset('images/demo/gallery/01.png') }}" alt="">
-                        <figcaption>Nama-Pelanggan-6</figcaption>
-                    </figure>
-                </li>
-                <li class="one_quarter">
-                    <figure><img src="{{ asset('images/demo/gallery/01.png') }}" alt="">
-                        <figcaption>Nama-Pelanggan-7</figcaption>
-                    </figure>
-                </li>
-                <li class="one_quarter">
-                    <figure><img src="{{ asset('images/demo/gallery/01.png') }}" alt="">
-                        <figcaption>Nama-Pelanggan-8</figcaption>
-                    </figure>
-                </li>
-            </ul>
-            <p class="center"><a class="btn" href="customer">Tampilkan Semua</a></p>
-            <div class="clear"></div>
+            @for ($i = 0; $i < sizeof($cb->cards) / 4; $i++)
+                <ul class="nospace clear services">
+                    @if (isset($cb->cards[$i * 4]))
+                        <li class="one_quarter first">
+                            <figure><img src="{{ asset($cb->cards[$i * 4]->image_url) }}" alt="">
+                                <figcaption>{{ $cb->cards[$i * 4]->title }}</figcaption>
+                            </figure>
+                        </li>
+                    @else
+                        <li class="one_quarter first">
+                        </li>
+                    @endif
+                    @if (isset($cb->cards[$i * 4 + 1]))
+                        <li class="one_quarter">
+                            <figure><img src="{{ asset($cb->cards[$i * 4 + 1]->image_url) }}" alt="">
+                                <figcaption>{{ $cb->cards[$i * 4 + 1]->title }}</figcaption>
+                            </figure>
+                        </li>
+                    @else
+                        <li class="one_quarter ">
+                        </li>
+                    @endif
+                    @if (isset($cb->cards[$i * 4 + 2]))
+                        <li class="one_quarter">
+                            <figure><img src="{{ asset($cb->cards[$i * 4 + 2]->image_url) }}" alt="">
+                                <figcaption>{{ $cb->cards[$i * 4 + 2]->title }}</figcaption>
+                            </figure>
+                        </li>
+                    @else
+                        <div class="one_quarter ">
+                        </div>
+                    @endif
+                    @if (isset($cb->cards[$i * 4 + 3]))
+                        <li class="one_quarter">
+                            <figure><img src="{{ asset($cb->cards[$i * 4 + 3]->image_url) }}" alt="">
+                                <figcaption>{{ $cb->cards[$i * 4 + 3]->title }}</figcaption>
+                            </figure>
+                        </li>
+                    @else
+                        <li class="one_quarter ">
+                        </li>
+                    @endif
+                </ul>
+            @endfor
+            <p class="center"><a class="btn" href="{{route('card-box', [$cb->title, $cb->card_type, $cb->id])}}">Tampilkan Semua</a></p>
         </main>
     </div>
 </body>

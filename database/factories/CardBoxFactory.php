@@ -17,7 +17,7 @@ class CardBoxFactory extends Factory
     public function definition(): array
     {
         return [
-            'type' => 'card-1',
+            'card_type' => 'card-1',
             'title' => $this->faker->text(10),
             'info' => $this->faker->text(30),
         ];

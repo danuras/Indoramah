@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('image_url');
             $table->string('date_published');
             $table->string('author');
-            $table->string('text');
+            $table->longText('text');
             $table->string('link');
             $table->timestamps();
         });

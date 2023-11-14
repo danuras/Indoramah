@@ -14,43 +14,52 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <!-- Bagian Header -->
-    @include('components.small-heading-web')
+    @include('components.small-heading-web', [
+        'web_attribute' => $web_attribute,
+        'navigations' => $navigations,
+        'card_boxes' => $card_boxes,
+    ])
     
     <div class="wrapper row3" id = 'portfolio'>
         <main class="hoc container clear">
             <div class="btmspace-50 center">
-                <h3 class="btmspace-10">Profil Indoramah</h3>
+                <h3 class="btmspace-10">Profil {{$web_attribute->title}}</h3>
             </div>
             <div class="group btmspace-50 center">
                 <div class="two_quarter first">
-                    <figure><img src="{{asset('images/demo/gallery/01.png')}}" alt="" class="image_left"></figure>
+                    <figure><img src="{{asset($company_profile->image_url)}}" alt="" class="image_left"></figure>
                     <br>
                     <br>
-                    <footer><a class="btn" href="https://wa.me/6283102377495?text=Hai%20INDORAMAH !%20Saya%20ingin%20tanya%20seputar%20jasa%20anda."><i class="fa fa-whatsapp my-float"></i> (WA) Hubungi - 0888 8888 8888</a></footer>
+                    <footer><a class="btn" href="https://wa.me/{{$contact->whatsapp}}?text={{$contact->whatsapp_message}}"><i class="fa fa-whatsapp my-float"></i> (WA) Hubungi - {{$contact->whatsapp}}</a></footer>
                 </div>
                 <div class = "two_quarter">
                     <h3>Riwayat Perusahaan</h3>
                     <br>
-                    <p style="text-align: left;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas eveniet culpa illum. Reprehenderit numquam, temporibus rerum quo voluptate veniam molestias, dolorum eligendi fugit repellendus esse omnis mollitia et, recusandae quia? Recusandae expedita, velit excepturi minima ratione sed deleniti dolore possimus distinctio maxime esse facilis iure illo cumque consequatur illum inventore, totam incidunt saepe, ducimus molestiae dolorem ipsam. Temporibus esse magnam iusto, aut inventore, sint quidem molestias fuga ipsum porro ratione velit veniam corporis fugit modi minima et ad! Eaque, veniam.s</p>
+                    <p style="text-align: left;">{{$company_profile->description}}</p>
                 </div>
             </div>
             <div class="group btmspace-50 center">
                 <div class="two_quarter first">
                     <h3>Visi Perusahaan</h3>
                     <br>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab repudiandae delectus sed natus, et autem reiciendis veritatis quos iure unde, tenetur repellendus? Maxime quidem eos excepturi facere ipsam debitis blanditiis sunt? Porro harum hic suscipit distinctio odit? Libero, illo incidunt.</p>
+                    <p>{{$company_profile->vision}}</p>
                 </div>
                 <div class = "two_quarter">
                     <h3>Misi Perusahaan</h3>
                     <br>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab repudiandae delectus sed natus, et autem reiciendis veritatis quos iure unde, tenetur repellendus? Maxime quidem eos excepturi facere ipsam debitis blanditiis sunt? Porro harum hic suscipit distinctio odit? Libero, illo incidunt.</p>
+                    <p>{{$company_profile->mission}}</p>
                 </div>
             </div>
             <div class="clear"></div>
         </main>
     </div>
 
-    @include('components.footer')
+    @include('components.footer', [
+        'web_attribute' => $web_attribute,
+        'contact' => $contact,
+        'navigations' => $navigations,
+        'social_media' => $social_media,
+    ])
 
     <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
     <!-- JAVASCRIPTS -->

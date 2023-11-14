@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('icon');
             $table->string('title');
-            $table->string('teks');
+            $table->longText('text');
             $table->timestamps();
         });
     }

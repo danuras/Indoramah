@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('web_attributes', function (Blueprint $table) {
             $table->string('title');
             $table->string('icon');
+            $table->string('short_description');
             $table->string('long_title');
             $table->string('main_heading');
             $table->string('sub_heading');

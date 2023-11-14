@@ -15,8 +15,9 @@
         <!-- Indicators -->
         <ol class="carousel-indicators">
             <li data-target="#testimonies" data-slide-to="0" class="active"></li>
-            <li data-target="#testimonies" data-slide-to="1"></li>
-            <li data-target="#testimonies" data-slide-to="2"></li>
+            @for ($i = 1; $i < sizeof($testimonies); $i++)
+                <li data-target="#testimonies" data-slide-to="{{$i}}"></li>
+            @endfor
         </ol>
 
         <!-- Wrapper for slides -->
@@ -24,63 +25,39 @@
             <div class="item active">
                 <!-- Bagian 3 -->
                 <div class="wrapper bgded overlay"
-                    style="background-image:url({{ asset('images/demo/backgrounds/02.png') }});">
+                    style="background-image:url({{ $background_image }});">
                     <div class="hoc container clear">
                         <div class="testimonial clear">
-                            <blockquote>Est vitae varius vivamus enim mi egestas at lacinia et faucibus eget tellus
-                                aenean nec massa
-                                semper luctus quam non cursus purus donec nec sollicitudin mauris at pulvinar lectus
-                                nunc eget mi a.
+                            <blockquote>{{$testimonies[0]->value }}
                             </blockquote>
-                            <figure><img class="circle" src="{{ asset('images/demo/60x60.png') }}" alt="">
-                                <figcaption><strong>A.Doe</strong><br>
-                                    <em>Job / Title</em>
+                            <figure><img class="circle" src="{{ asset($testimonies[0]->photo_profile) }}" alt="">
+                                <figcaption><strong>{{$testimonies[0]->name}}</strong><br>
+                                    <em>{{$testimonies[0]->job}}</em>
                                 </figcaption>
                             </figure>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="item">
-                <!-- Bagian 3 -->
-                <div class="wrapper bgded overlay" style="background-image:url('images/demo/backgrounds/02.png');">
-                    <div class="hoc container clear">
-                        <div class="testimonial clear">
-                            <blockquote>Est vitae varius vivamus enim mi egestas at lacinia et faucibus eget tellus
-                                aenean nec massa
-                                semper luctus quam non cursus purus donec nec sollicitudin mauris at pulvinar lectus
-                                nunc eget mi a.
-                            </blockquote>
-                            <figure><img class="circle" src="{{ asset('images/demo/60x60.png') }}" alt="">
-                                <figcaption><strong>A.Doe</strong><br>
-                                    <em>Job / Title</em>
-                                </figcaption>
-                            </figure>
+            @for ($i = 1; $i < sizeof($testimonies); $i++)
+                <div class="item">
+                    <!-- Bagian 3 -->
+                    <div class="wrapper bgded overlay"
+                        style="background-image:url({{ $background_image }});">
+                        <div class="hoc container clear">
+                            <div class="testimonial clear">
+                                <blockquote>{{$testimonies[$i]->value }}
+                                </blockquote>
+                                <figure><img class="circle" src="{{ asset($testimonies[$i]->photo_profile) }}" alt="">
+                                    <figcaption><strong>{{$testimonies[$i]->name}}</strong><br>
+                                        <em>{{$testimonies[$i]->job}}</em>
+                                    </figcaption>
+                                </figure>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="item">
-                <!-- Bagian 3 -->
-                <div class="wrapper bgded overlay" style="background-image:url('images/demo/backgrounds/02.png');">
-                    <div class="hoc container clear">
-                        <div class="testimonial clear">
-                            <blockquote>Est vitae varius vivamus enim mi egestas at lacinia et faucibus eget tellus
-                                aenean nec massa
-                                semper luctus quam non cursus purus donec nec sollicitudin mauris at pulvinar lectus
-                                nunc eget mi a.
-                            </blockquote>
-                            <figure><img class="circle" src="{{ asset('images/demo/60x60.png') }}" alt="">
-                                <figcaption><strong>A.Doe</strong><br>
-                                    <em>Job / Title</em>
-                                </figcaption>
-                            </figure>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endfor
         </div>
 
         <!-- Left and right controls -->

@@ -18,11 +18,11 @@ class CompanyProfileFactory extends Factory
     {
         return [
             'title' => $this->faker->text(10),
-            'description' => $this->faker->text(40),
+            'description' => $this->faker->text(500),
             'image_url' => 'images/demo/gallery/01.png',
             'whatsapp_message' => $this->faker->text(20),
-            'mission' => $this->faker->text(20),
-            'vision' => $this->faker->text(20),
+            'mission' => $this->faker->text(200),
+            'vision' => $this->faker->text(200),
         ];
     }
 }

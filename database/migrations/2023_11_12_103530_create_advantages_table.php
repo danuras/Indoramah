@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('advantages', function (Blueprint $table) {
             $table->string('title');
-            $table->string('description');
+            $table->longText('description');
             $table->string('image_url');
             $table->timestamps();
         });
