@@ -229,7 +229,7 @@
         background-color: <?php echo $color->background_color_2; ?>;
     }
     .row5 {
-        background-color: <?php echo $color->background_color_2; ?>;
+        background-color: <?php echo $color->background_color_2.'ee'; ?>;
     }
 
     .btn {

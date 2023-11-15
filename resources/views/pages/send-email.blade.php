@@ -18,6 +18,7 @@
         'web_attribute' => $web_attribute,
         'navigations' => $navigations,
         'card_boxes' => $card_boxes,
+        'color' => $color,
     ])
     <div class="wrapper row3" style="background-image:url({{ asset($contact->background_contact) }});">
         <main class="hoc container clear">

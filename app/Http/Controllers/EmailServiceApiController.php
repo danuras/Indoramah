@@ -29,7 +29,7 @@ class EmailServiceApiController extends Controller
                 $emailService->email_sender = $request->input('email_sender');
                 $emailService->email_receiver = $request->input('email_receiver');
                 $emailService->password = $request->input('password');
-                if ($emailService->save() || $emailService->isDirty()) {
+                if ($emailService->save() || !$emailService->isDirty()) {
                     return $this->successResponse(null);
                 }
                 return $this->failResponse(null);

@@ -1,8 +1,12 @@
 <?php
 
+use App\Http\Controllers\AdvantageApiController;
 use App\Http\Controllers\AuthApiController;
+use App\Http\Controllers\ColorApiController;
+use App\Http\Controllers\CompanyProfileApiController;
 use App\Http\Controllers\EmailServiceApiController;
 use App\Http\Controllers\UserApiController;
+use App\Http\Controllers\WebAttributeApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -48,5 +52,21 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::prefix('email-service')->group(function () {
         Route::post('create-or-update', [EmailServiceApiController::class,'createOrUpdate']);
         Route::get('show',  [EmailServiceApiController::class,'show']);
+    });
+    Route::prefix('advantage')->group(function () {
+        Route::post('create-or-update', [AdvantageApiController::class,'createOrUpdate']);
+        Route::get('show',  [AdvantageApiController::class,'show']);
+    });
+    Route::prefix('color')->group(function () {
+        Route::post('create-or-update', [ColorApiController::class,'createOrUpdate']);
+        Route::get('show',  [ColorApiController::class,'show']);
+    });
+    Route::prefix('company-profile')->group(function () {
+        Route::post('create-or-update', [CompanyProfileApiController::class,'createOrUpdate']);
+        Route::get('show',  [CompanyProfileApiController::class,'show']);
+    });
+    Route::prefix('web-attribute')->group(function () {
+        Route::post('create-or-update', [WebAttributeApiController::class,'createOrUpdate']);
+        Route::get('show',  [WebAttributeApiController::class,'show']);
     });
 });
