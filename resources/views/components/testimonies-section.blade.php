@@ -25,7 +25,7 @@
             <div class="item active">
                 <!-- Bagian 3 -->
                 <div class="wrapper bgded overlay"
-                    style="background-image:url({{ $background_image }});">
+                    style="background-image:url({{ asset($background_image) }});">
                     <div class="hoc container clear">
                         <div class="testimonial clear">
                             <blockquote>{{$testimonies[0]->value }}
@@ -43,7 +43,7 @@
                 <div class="item">
                     <!-- Bagian 3 -->
                     <div class="wrapper bgded overlay"
-                        style="background-image:url({{ $background_image }});">
+                        style="background-image:url({{ asset($background_image) }});">
                         <div class="hoc container clear">
                             <div class="testimonial clear">
                                 <blockquote>{{$testimonies[$i]->value }}
