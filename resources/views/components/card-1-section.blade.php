@@ -4,14 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link href="{{ asset('layout/styles/layout.css') }}" rel="stylesheet" type="text/css" media="all">
-    <link href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" rel="stylesheet" />
 </head>
 
 <body id="top">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
-    <div class="wrapper row3" id = '{{ $cb->title }}'>
+    <div class="wrapper {{ $rank % 2 == 1 ? 'row3' : 'row4' }}" id = '{{ $cb->title }}'>
         <main class="hoc container clear">
             <div class="btmspace-50 center">
                 <h3 class="btmspace-10">{{ $cb->title }}</h3>
@@ -58,11 +54,10 @@
                     </div>
                 @endif
             </div>
-            <p class="center"><a class="btn" href="{{route('card-box', [$cb->title, $cb->card_type, $cb->id])}}">Tampilkan Semua</a></p>
+            <p class="center"><a class="{{ $rank % 2 == 1 ? 'btn' : 'btn inverse' }}"
+                    href="{{ route('card-box', [$cb->title, $cb->card_type, $cb->id]) }}">Tampilkan Semua</a></p>
             <div class="clear"></div>
         </main>
     </div>
-    <!--JAVASCRIPTS -->
 </body>
-
 </html>

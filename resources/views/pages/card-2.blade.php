@@ -20,8 +20,9 @@
         'web_attribute' => $web_attribute,
         'navigations' => $navigations,
         'card_boxes' => $card_boxes,
+        'color' => $color,
     ])
-    <div class="wrapper row4" id ="services">
+    <div class="wrapper row3" id ="services">
         <main class="hoc container clear">
             <div class="btmspace-50 center">
                 <h3 class="btmspace-10">{{ $title }}</h3>
@@ -31,7 +32,7 @@
                     @if (isset($cards[$i * 4]))
                         <div class="one_quarter first">
                             <a
-                                href="card-box/{{ $cards[$i * 4]->title }}/card-2/{{ $cards[$i * 4]->content_type }}">
+                                href="{{ route('card-content', [$cards[$i * 4]->title, $cards[$i * 4]->content_type, $cards[$i * 4]->id]) }}">
                                 <div class="image-container">
                                     <img src="{{ asset($cards[$i * 4]->image_url) }}" alt="Deskripsi Gambar">
                                     <div class="image-text">{{ $cards[$i * 4]->title }}</div>
@@ -45,7 +46,7 @@
                     @if (isset($cards[$i * 4 + 1]))
                         <div class="one_quarter">
                             <a
-                                href="card-box/{{ $cards[$i * 4 + 1]->title }}/card-2/{{ $cards[$i * 4 + 1]->content_type }}">
+                                href="{{ route('card-content', [$cards[$i * 4 + 1]->title, $cards[$i * 4 + 1]->content_type, $cards[$i * 4 + 1]->id]) }}">
                                 <div class="image-container">
                                     <img src="{{ asset($cards[$i * 4 + 1]->image_url) }}" alt="Deskripsi Gambar">
                                     <div class="image-text">{{ $cards[$i * 4 + 1]->title }}</div>
@@ -59,7 +60,7 @@
                     @if (isset($cards[$i * 4 + 2]))
                         <div class="one_quarter">
                             <a
-                                href="card-box/{{ $cards[$i * 4 + 2]->title }}/card-2/{{ $cards[$i * 4 + 2]->content_type }}">
+                                href="{{ route('card-content', [$cards[$i * 4 + 2]->title, $cards[$i * 4 + 2]->content_type, $cards[$i * 4 + 2]->id]) }}">
                                 <div class="image-container">
                                     <img src="{{ asset($cards[$i * 4 + 2]->image_url) }}" alt="Deskripsi Gambar">
                                     <div class="image-text">{{ $cards[$i * 4 + 2]->title }}</div>
@@ -73,7 +74,7 @@
                     @if (isset($cards[$i * 4 + 3]))
                         <div class="one_quarter">
                             <a
-                                href="card-box/{{ $cards[$i * 4 + 3]->title }}/card-2/{{ $cards[$i * 4 + 3]->content_type }}">
+                                href="{{ route('card-content', [$cards[$i * 4 + 3]->title, $cards[$i * 4 + 3]->content_type, $cards[$i * 4 + 3]->id]) }}">
                                 <div class="image-container">
                                     <img src="{{ asset($cards[$i * 4 + 3]->image_url) }}" alt="Deskripsi Gambar">
                                     <div class="image-text">{{ $cards[$i * 4 + 3]->title }}</div>

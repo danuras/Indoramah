@@ -19,6 +19,7 @@
     @include('components.small-heading-web', [
         'web_attribute' => $web_attribute,
         'navigations' => $navigations,
+        'color' => $color,
         'card_boxes' => $card_boxes,
     ])
 

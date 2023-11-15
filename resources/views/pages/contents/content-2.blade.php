@@ -18,6 +18,7 @@
         'web_attribute' => $web_attribute,
         'navigations' => $navigations,
         'card_boxes' => $card_boxes,
+        'color' => $color,
     ])
 
     <div class="wrapper row3" id = 'portfolio'>

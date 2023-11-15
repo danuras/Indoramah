@@ -9,6 +9,7 @@ use App\Models\Blog;
 use App\Models\Card;
 use App\Models\CardBox;
 use App\Models\CardType;
+use App\Models\Color;
 use App\Models\CompanyProfile;
 use App\Models\Contact;
 use App\Models\ContentType;
@@ -40,6 +41,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('password'),
             'is_primary' => true,
         ]);
+        Color::factory()->create();
         WebAttribute::factory()->create();
         CompanyProfile::factory()->create();
         OrderFlow::factory()->count(5)->create();

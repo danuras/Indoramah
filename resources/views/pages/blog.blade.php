@@ -18,6 +18,7 @@
         'web_attribute' => $web_attribute,
         'navigations' => $navigations,
         'card_boxes' => $card_boxes,
+        'color' => $color,
     ])
 
     <!-- Bagian list blog -->

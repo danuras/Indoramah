@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="{{ asset('layout/styles/layout.css') }}" rel="stylesheet" type="text/css" media="all">
     <link href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" rel="stylesheet" />
+    @include('components.style-controller', $color)
+    
 </head>
 
 <body id="top">
@@ -21,29 +23,30 @@
     ])
 
     @foreach ($web_contents as $wc)
-        @if($wc->content_type == 'card')
+        @if ($wc->content_type == 'card')
             @foreach ($card_boxes as $cb)
-                @if($cb->id == $wc->card_box_id)
-                    @if($cb->card_type == 'card-1')
-                        @include('components.card-1-section', $cb)
+                @if ($cb->id == $wc->card_box_id)
+                    @if ($cb->card_type == 'card-1')
+                        @include('components.card-1-section', ['cb' => $cb, 'rank' => $wc->rank])
                     @elseif($cb->card_type == 'card-2')
-                        @include('components.card-2-section', $cb)
+                        @include('components.card-2-section', ['cb' => $cb, 'rank' => $wc->rank])
                     @elseif($cb->card_type == 'card-3')
-                        @include('components.card-3-section', $cb)
+                        @include('components.card-3-section', ['cb' => $cb, 'rank' => $wc->rank])
                     @endif
-                @endif                
+                @endif
             @endforeach
         @elseif($wc->content_type == 'advantage')
-            @include('components.advantage-section', $advantage)
+            @include('components.advantage-section', ['advantage'=>$advantage, 'rank' => $wc->rank])
         @elseif($wc->content_type == 'testimony')
             @include('components.testimonies-section', [
-                'testimonies'=>$testimonies,
-                'background_image' => $web_attribute->background_testimonies,   
+                'testimonies' => $testimonies,
+                'background_image' => $web_attribute->background_testimonies, 
+                'rank' => $wc->rank,
             ])
         @elseif($wc->content_type == 'blog')
-            @include('components.blog-section', $blogs)
+            @include('components.blog-section', ['blogs'=>$blogs, 'rank' => $wc->rank])
         @elseif($wc->content_type == 'maps')
-            @include('components.maps', $maps)
+            @include('components.maps', ['maps'=>$maps, 'rank' => $wc->rank])
         @endif
     @endforeach
 

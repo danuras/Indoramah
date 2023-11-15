@@ -8,6 +8,11 @@
 
     <link href="{{ asset('layout/styles/layout.css') }}" rel="stylesheet" type="text/css" media="all">
     <link href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" rel="stylesheet" />
+    <style>
+        h3 {
+            color: <?php echo $color->common_text_color; ?>;
+        }
+    </style>
 </head>
 
 <body id="top">
@@ -19,6 +24,7 @@
         'web_attribute' => $web_attribute,
         'navigations' => $navigations,
         'card_boxes' => $card_boxes,
+        'color' => $color,
     ])
 
     <div class="wrapper row3" id = 'portfolio'>

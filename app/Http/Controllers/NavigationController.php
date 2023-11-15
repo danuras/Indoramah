@@ -9,6 +9,7 @@ use App\Models\Blog;
 use App\Models\Card;
 use App\Models\CardBox;
 use App\Models\CardType;
+use App\Models\Color;
 use App\Models\CompanyProfile;
 use App\Models\Contact;
 use App\Models\ContentType;
@@ -34,6 +35,7 @@ class NavigationController extends Controller
         $output["contact"] = Contact::select('whatsapp', 'whatsapp_message', 'call_number', 'address', 'email')->first();
         $wcs = WebContent::orderBy('rank')->get();
         $output['social_media'] = SocialMedia::first();
+        $output['color'] = Color::first();
 
         foreach ($wcs as $wc) {
             if ($wc->content_type == 'card') {
@@ -77,6 +79,8 @@ class NavigationController extends Controller
         $wcs = WebContent::orderBy('rank')->get();
         $output['web_contents'] = $wcs;
         $output['social_media'] = SocialMedia::first();
+        $output['color'] = Color::first();
+
 
         foreach ($wcs as $wc) {
             if ($wc->content_type == 'card') {
