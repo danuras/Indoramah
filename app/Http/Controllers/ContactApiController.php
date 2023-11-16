@@ -20,16 +20,19 @@ class ContactApiController extends Controller
             'info_contact' => 'required',
             'embeded_map_url' => 'required',
             'info_location' => 'required',
-            'background_contact' => 'required|image|mimes:jpeg,png,jpg|max:2048|ratio:1950/679',
+            'background_contact' => 'image|mimes:jpeg,png,jpg|max:2048|width:1950|height:679',
         ]);
         if ($validator->fails()) {
             return $this->requestKurang($validator->errors());
         }
-        $contact = Contact::first();
-        $file = $request->file('background_contact');
-        $filename = date('YmdHi') . $file->getClientOriginalName();
-        $file->move(public_path('images/contact/background_contact/'), $filename);
-        $background_contact = 'images/contact/background_contact/' . $filename;
+        $background_contact = null;
+        if ($background_contact) {
+            $contact = Contact::first();
+            $file = $request->file('background_contact');
+            $filename = date('YmdHi') . $file->getClientOriginalName();
+            $file->move(public_path('images/contact/background_contact/'), $filename);
+            $background_contact = 'images/contact/background_contact/' . $filename;
+        }
         if ($contact) {
             $contact->whatsapp = $request->whatsapp;
             $contact->whatsapp_message = $request->whatsapp_message;
@@ -39,13 +42,20 @@ class ContactApiController extends Controller
             $contact->info_contact = $request->info_contact;
             $contact->embeded_map_url = $request->embeded_map_url;
             $contact->info_location = $request->info_location;
-            $contact->background_contact = $background_contact;
-
+            if ($background_contact) {
+                $contact->background_contact = $background_contact;
+            }
             if ($contact->save() || !$contact->isDirty()) {
-                return $this->successResponse(null);
+                return $this->successResponse($contact);
             }
             return $this->failResponse(null);
         } else {
+            $validator = Validator::make($request->all(), [
+                'background_contact' => 'required',
+            ]);
+            if ($validator->fails()) {
+                return $this->requestKurang($validator->errors());
+            }
             $contact = Contact::create([
                 'whatsapp' => $request->whatsapp,
                 'whatsapp_message' => $request->whatsapp_message,
@@ -58,7 +68,7 @@ class ContactApiController extends Controller
                 'background_contact' => $background_contact,
             ]);
             if ($contact) {
-                return $this->successResponse(null);
+                return $this->successResponse($contact);
             }
             return $this->failResponse(null);
         }

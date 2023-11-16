@@ -94,27 +94,21 @@ class DatabaseSeeder extends Seeder
         ]);
         for ($i = 0; $i < 7; $i++) {
             $type = (mt_rand(0, 1) == 0) ? 'content-1' : 'content-2';
+            $c = Card::factory()->create([
+                'image_url' => 'images/demo/gallery/02.png',
+                'text' => null,
+                'content_type' => $type,
+                'link' => null,
+                'is_clickable' => true,
+                'card_box_id' => $cb->id,
+            ]);
             if ($type == 'content-1') {
-                $c = Card::factory()->create([
-                    'image_url' => 'images/demo/gallery/02.png',
-                    'link' => null,
-                    'text' => null,
-                    'is_clickable' => true,
-                    'content_type' => $type,
-                    'card_box_id' => $cb->id,
-                ]);
-
                 $ct = CardType::factory()->create([
-                    'images' => json_encode([
-                        'images/demo/gallery/02.png',
-                        'images/demo/gallery/02.png',
-                        'images/demo/gallery/02.png',
-                    ]),
+                    'image_url' => 'images/demo/gallery/02.png',
                     'card_id' => $c->id,
                 ]);
                 ContentType::factory()->count(20)->create([
                     'card_type_id' => $ct->id,
-
                     'text' => '<div class = "w-100 text-left">
                     <b>Judul</b>
                     <p>informasi-1</p>
@@ -123,18 +117,9 @@ class DatabaseSeeder extends Seeder
                 </div>',
                 ]);
             } else {
-                $c = Card::factory()->create([
-                    'image_url' => 'images/demo/gallery/02.png',
-                    'text' => null,
-                    'content_type' => $type,
-                    'link' => null,
-                    'is_clickable' => true,
-                    'card_box_id' => $cb->id,
-                ]);
-
                 $ct = CardType::factory()->create([
                     'text' => null,
-                    'images' => null,
+                    'image_url' => null,
                     'card_id' => $c->id,
                 ]);
                 ContentType::factory()->count(20)->create([

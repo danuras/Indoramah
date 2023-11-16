@@ -18,8 +18,9 @@ class WebAttributeApiController extends Controller
             'long_title' => 'required',
             'main_heading' => 'required',
             'sub_heading' => 'required',
-            'background_image' => 'required|image|mimes:jpeg,png,jpg|max:2048|ratio:1950/679',
-            'background_testimonies' => 'required|image|mimes:jpeg,png,jpg|max:2048|ratio:1950/512',
+            'icon' => 'image|mimes:jpeg,png,jpg|max:1024|ratio:1/1',
+            'background_image' => 'image|mimes:jpeg,png,jpg|max:2048|width:1950|height:679',
+            'background_testimonies' => 'image|mimes:jpeg,png,jpg|max:2048|width:1950|height:512',
         ]);
         if ($validator->fails()) {
             return $this->requestKurang($validator->errors());
@@ -27,52 +28,67 @@ class WebAttributeApiController extends Controller
         $webAttribute = WebAttribute::first();
         $icon = null;
         if ($request->file('icon')) {
-            $validator = Validator::make($request->all(), [
-                'icon' => 'image|mimes:jpeg,png,jpg|max:1024|ratio:1/1',
-            ]);
-            if ($validator->fails()) {
-                return $this->requestKurang($validator->errors());
-            }
             $file = $request->file('icon');
             $filename = date('YmdHi') . $file->getClientOriginalName();
             $file->move(public_path('images/web_attribute/icon/'), $filename);
             $icon = 'images/web_attribute/icon/' . $filename;
         }
-        $validator = Validator::make($request->all(), [
-            'icon' => 'image|mimes:jpeg,png,jpg|max:1024',
-        ]);
-        if ($validator->fails()) {
-            return $this->requestKurang($validator->errors());
+        $background_image = null;
+        if ($request->file('background_image')) {
+            $file = $request->file('background_image');
+            $filename = date('YmdHi') . $file->getClientOriginalName();
+            $file->move(public_path('images/web_attribute/background_image/'), $filename);
+            $background_image = 'images/web_attribute/background_image/' . $filename;
         }
-
-        $file = $request->file('background_image');
-        $filename = date('YmdHi') . $file->getClientOriginalName();
-        $file->move(public_path('images/web_attribute/background_image/'), $filename);
-        $background_image = 'images/web_attribute/background_image/' . $filename;
-
-        $file = $request->file('background_testimonies');
-        $filename = date('YmdHi') . $file->getClientOriginalName();
-        $file->move(public_path('images/web_attribute/background_testimonies/'), $filename);
-        $background_testimonies = 'images/web_attribute/background_testimonies/' . $filename;
-
+        $background_testimonies = null;
+        if ($request->file('background_testimonies')) {
+            $file = $request->file('background_testimonies');
+            $filename = date('YmdHi') . $file->getClientOriginalName();
+            $file->move(public_path('images/web_attribute/background_testimonies/'), $filename);
+            $background_testimonies = 'images/web_attribute/background_testimonies/' . $filename;
+        }
         if ($webAttribute) {
             $webAttribute->title = $request->title;
-            $webAttribute->icon = $request->icon;
+            if ($icon) {
+                $webAttribute->icon = $icon;
+            }
             $webAttribute->short_description = $request->short_description;
             $webAttribute->long_title = $request->long_title;
             $webAttribute->main_heading = $request->main_heading;
             $webAttribute->sub_heading = $request->sub_heading;
-            $webAttribute->background_image = $background_image;
-            $webAttribute->background_testimonies = $background_testimonies;
+            if ($background_image) {
+                $webAttribute->background_image = $background_image;
+            }
+            if ($background_testimonies) {
+                $webAttribute->background_testimonies = $background_testimonies;
+            }
 
             if ($webAttribute->save() || !$webAttribute->isDirty()) {
-                return $this->successResponse(null);
+                return $this->successResponse($webAttribute);
             }
             return $this->failResponse(null);
         } else {
+            $validator = Validator::make($request->all(), [
+                'background_image' => 'required',
+                'background_testimonies' => 'required',
+            ]);
+            if ($validator->fails()) {
+                return $this->requestKurang($validator->errors());
+            }
+
+            $file = $request->file('background_image');
+            $filename = date('YmdHi') . $file->getClientOriginalName();
+            $file->move(public_path('images/web_attribute/background_image/'), $filename);
+            $background_image = 'images/web_attribute/background_image/' . $filename;
+
+            $file = $request->file('background_testimonies');
+            $filename = date('YmdHi') . $file->getClientOriginalName();
+            $file->move(public_path('images/web_attribute/background_testimonies/'), $filename);
+            $background_testimonies = 'images/web_attribute/background_testimonies/' . $filename;
+
             $webAttribute = WebAttribute::create([
                 'title' => $request->title,
-                'icon' => $request->icon,
+                'icon' => $icon,
                 'short_description' => $request->short_description,
                 'long_title' => $request->long_title,
                 'main_heading' => $request->main_heading,
@@ -81,7 +97,7 @@ class WebAttributeApiController extends Controller
                 'background_testimonies' => $background_testimonies,
             ]);
             if ($webAttribute) {
-                return $this->successResponse(null);
+                return $this->successResponse($webAttribute);
             }
             return $this->failResponse(null);
         }

@@ -27,7 +27,7 @@
             </div>
             <div class="group btmspace-50 center">
                 <div class="two_quarter first">
-                    <figure><img src="{{ asset('images/demo/gallery/01.png') }}" alt="" class="image_left">
+                    <figure><img src="{{ asset($card_type->image_url) }}" alt="" class="image_left">
                     </figure>
                     <br>
                     <br>

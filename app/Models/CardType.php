@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class CardType extends Model
 {
     use HasFactory;
+
+    public function content_types()
+    {
+        return $this->hasMany(ContentType::class, 'card_type_id');
+    }
 }
