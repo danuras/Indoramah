@@ -13,6 +13,7 @@ use App\Http\Controllers\ContactApiController;
 use App\Http\Controllers\ContentTypeApiController;
 use App\Http\Controllers\EmailServiceApiController;
 use App\Http\Controllers\OrderFlowApiController;
+use App\Http\Controllers\SocialMediaApiController;
 use App\Http\Controllers\TestimonyApiController;
 use App\Http\Controllers\UserApiController;
 use App\Http\Controllers\WebAttributeApiController;
@@ -64,7 +65,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::prefix('auth')->group(function () {
         Route::post('/logout', [AuthApiController::class, 'logout']);
-        Route::post('/logoutAllDevice', [AuthApiController::class, 'logoutAllDevice']);
+        Route::post('/logout-all-device', [AuthApiController::class, 'logoutAllDevice']);
     });
 
     Route::prefix('blog')->group(function () {
@@ -124,6 +125,11 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('update', [OrderFlowApiController::class, 'update']);
         Route::delete('delete/{id}', [OrderFlowApiController::class, 'delete']);
         Route::get('show', [OrderFlowApiController::class, 'show']);
+    });
+
+    Route::prefix('social-media')->group(function () {
+        Route::post('create-or-update', [SocialMediaApiController::class, 'createOrUpdate']);
+        Route::get('show', [SocialMediaApiController::class, 'show']);
     });
 
     Route::prefix('testimony')->group(function () {

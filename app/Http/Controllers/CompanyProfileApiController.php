@@ -12,7 +12,6 @@ class CompanyProfileApiController extends Controller
     public function createOrUpdate(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'title' => 'required',
             'description' => 'required',
             'whatsapp_message' => 'required',
             'mission' => 'required',
@@ -31,7 +30,6 @@ class CompanyProfileApiController extends Controller
             $image_url = 'images/company_profile/image_url/' . $filename;
         }
         if ($company_profile) {
-            $company_profile->title = $request->title;
             $company_profile->description = $request->description;
             $company_profile->whatsapp_message = $request->whatsapp_message;
             $company_profile->mission = $request->mission;
@@ -52,7 +50,6 @@ class CompanyProfileApiController extends Controller
                 return $this->requestKurang($validator->errors());
             }
             $company_profile = CompanyProfile::create([
-                'title' => $request->title,
                 'description' => $request->description,
                 'whatsapp_message' => $request->whatsapp_message,
                 'mission' => $request->mission,

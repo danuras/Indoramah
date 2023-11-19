@@ -35,19 +35,16 @@ class WebContentApiController extends Controller
 
     public function update(Request $request){
         $validator = Validator::make($request->all(), [
-            'content_type' => 'required',
-            'card_box_id' => 'required',
+            'web_content_id' => 'required',
             'rank' => 'required',
         ]);
         if ($validator->fails()) {
             return $this->requestKurang($validator->errors());
         }
         
-        $web_content = WebContent::first();
+        $web_content = WebContent::find($request->web_content_id);
         
 
-        $web_content->content_type = $request->content_type;
-        $web_content->card_box_id = $request->card_box_id;
         $web_content->rank = $request->rank;
 
         if ($web_content->save() || !$web_content->isDirty()) {

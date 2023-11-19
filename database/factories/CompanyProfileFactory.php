@@ -17,7 +17,6 @@ class CompanyProfileFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->text(10),
             'description' => $this->faker->text(500),
             'image_url' => 'images/demo/gallery/01.png',
             'whatsapp_message' => $this->faker->text(20),

@@ -12,7 +12,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('company_profiles', function (Blueprint $table) {
-            $table->string('title');
             $table->longText('description');
             $table->string('image_url');
             $table->string('whatsapp_message');

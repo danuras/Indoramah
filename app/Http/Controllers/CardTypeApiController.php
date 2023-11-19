@@ -143,7 +143,7 @@ class CardTypeApiController extends Controller
         $card_type = CardType::find($id);
         return $this->successResponse([
             'card_type' => $card_type,
-            'content_type' => $card_type->content_types,
+            'content_types' => $card_type->content_types,
         ]);
     }
 

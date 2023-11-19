@@ -56,7 +56,7 @@ class AuthApiController extends Controller
             return $this->requestKurang($validator->errors());
         }
         $user = User::where('email', $request->input('email'))->first();
-        /* if ($user->token_expired_at < Carbon::now() || $user->token_expired_at == null) { */
+        if ($user->token_expired_at < Carbon::now() || $user->token_expired_at == null) { 
             $token = Str::random(6);
             $user->token = Hash::make($token);
             $user->token_expired_at = Carbon::now()->addMinutes(5);
@@ -66,7 +66,7 @@ class AuthApiController extends Controller
                 return $this->successResponse($user);
             }
             return $this->failResponse($user);
-       // }
+       }
 
         $diff = Carbon::createFromFormat('Y-m-d H:i:s', $user->token_expired_at)->diff(Carbon::now());
         return response()->json([
@@ -103,6 +103,7 @@ class AuthApiController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'email' => 'required|exists:users,email',
+            'token' => 'required',
         ]);
         if ($validator->fails()) {
             return $this->requestKurang($validator->errors());
@@ -138,7 +139,7 @@ class AuthApiController extends Controller
             return $this->failResponse($user);
         } else if (Hash::check($request->input('token'), $user->token) && $user->token_expired_at <= Carbon::now()) {
             return $this->requestKurang([
-                'conde' => ['Token Kadaluarsa']
+                'code' => ['Token Kadaluarsa']
             ]);
         } else {
             return $this->requestKurang(['code' => ['Token Salah']]);

@@ -40,6 +40,7 @@ class TestimonyApiController extends Controller
     public function update(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'testimony_id' => 'required',
             'value' => 'required',
             'name' => 'required',
             'job' => 'required',
@@ -49,7 +50,7 @@ class TestimonyApiController extends Controller
             return $this->requestKurang($validator->errors());
         }
 
-        $testimony = Testimony::first();
+        $testimony = Testimony::find($request->testimony_id);
 
         $photo_profile = null;
         if ($photo_profile) {

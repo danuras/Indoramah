@@ -34,7 +34,7 @@ class CardBoxApiController extends Controller
     public function update(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'card_type' => 'required',
+            'card_box_id' => 'required',
             'title' => 'required',
             'info' => 'required',
         ]);
@@ -42,9 +42,8 @@ class CardBoxApiController extends Controller
             return $this->requestKurang($validator->errors());
         }
 
-        $card_box = CardBox::first();
+        $card_box = CardBox::find($request->card_box_id);
 
-        $card_box->card_type = $request->card_type;
         $card_box->title = $request->title;
         $card_box->info = $request->info;
 
@@ -56,10 +55,10 @@ class CardBoxApiController extends Controller
 
     public function show($id)
     {
-        $card_boxes = CardBox::find($id);
+        $card_box = CardBox::find($id);
         return $this->successResponse([
-            'card_boxes' => $card_boxes,
-            'cards' => $card_boxes->cards,
+            'card_box' => $card_box,
+            'cards' => $card_box->cards,
         ]);
     }
 }
