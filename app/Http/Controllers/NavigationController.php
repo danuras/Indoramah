@@ -69,7 +69,6 @@ class NavigationController extends Controller
     }
     public function home()
     {
-        Mail::to('salam123.sb27')->send(new SendEmail($this->user));
         $output = [];
         if (CompanyProfile::first()) {
             $output["navigations"][] = 'company_profile';
