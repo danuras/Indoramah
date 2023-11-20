@@ -15,7 +15,7 @@ class TestimonyApiController extends Controller
             'value' => 'required',
             'name' => 'required',
             'job' => 'required',
-            'photo_profile' => 'required|image|mimes:jpeg,png,jpg|max:2048|ratio:1/1',
+            'photo_profile' => 'required|image|mimes:jpeg,png,jpg|max:2048|dimensions:ratio=1/1',
         ]);
         if ($validator->fails()) {
             return $this->requestKurang($validator->errors());
@@ -44,7 +44,7 @@ class TestimonyApiController extends Controller
             'value' => 'required',
             'name' => 'required',
             'job' => 'required',
-            'photo_profile' => 'image|mimes:jpeg,png,jpg|max:2048|ratio:1/1',
+            'photo_profile' => 'image|mimes:jpeg,png,jpg|max:2048|dimensions:ratio=1/1',
         ]);
         if ($validator->fails()) {
             return $this->requestKurang($validator->errors());

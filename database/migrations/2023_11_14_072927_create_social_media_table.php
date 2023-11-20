@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('social_media', function (Blueprint $table) {
+            $table->id();
             $table->string('facebook')->nullable();
             $table->string('twitter')->nullable();
             $table->string('linkedin')->nullable();

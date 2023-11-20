@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class OrderFlow extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'icon',
+        'value',
+    ];
+
 }

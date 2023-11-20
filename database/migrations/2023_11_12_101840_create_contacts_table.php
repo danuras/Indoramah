@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('contacts', function (Blueprint $table) {
+            $table->id();
             $table->string('whatsapp');
             $table->string('whatsapp_message');
             $table->string('call_number');

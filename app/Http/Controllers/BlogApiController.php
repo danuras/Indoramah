@@ -17,7 +17,7 @@ class BlogApiController extends Controller
             'author' => 'required',
             'text' => 'required',
             'link' => 'required',
-            'image_url' => 'required|image|mimes:jpeg,png,jpg|max:2048|ratio:16/9',
+            'image_url' => 'required|image|mimes:jpeg,png,jpg|max:2048|dimensions:ratio=16/9',
         ]);
         if ($validator->fails()) {
             return $this->requestKurang($validator->errors());
@@ -50,7 +50,7 @@ class BlogApiController extends Controller
             'author' => 'required',
             'text' => 'required',
             'link' => 'required',
-            'image_url' => 'image|mimes:jpeg,png,jpg|max:2048|ratio:16/9',
+            'image_url' => 'image|mimes:jpeg,png,jpg|max:2048|dimensions:ratio=16/9',
         ]);
         if ($validator->fails()) {
             return $this->requestKurang($validator->errors());

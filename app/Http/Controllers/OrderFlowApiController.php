@@ -13,7 +13,9 @@ class OrderFlowApiController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'value' => 'required',
-            'icon' => 'required|image|mimes:jpeg,png,jpg|max:2048|ratio:1/1',
+            'icon' => ['required', 'image', 'mimes:jpeg,png,jpg', 'max:2048', 'dimensions:ratio=1/1'],
+        ], [
+            'icon.dimensions' => 'Rasio gambar harus 1:1', // Pesan kustom untuk validasi rasio gambar
         ]);
         if ($validator->fails()) {
             return $this->requestKurang($validator->errors());
@@ -36,14 +38,17 @@ class OrderFlowApiController extends Controller
     public function update(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'order_flow_id' => 'required',
             'value' => 'required',
-            'icon' => 'image|mimes:jpeg,png,jpg|max:2048|ratio:1/1',
+            'icon' => 'image|mimes:jpeg,png,jpg|max:2048|dimensions:ratio=1/1',
+        ], [
+            'icon.dimensions' => 'Rasio gambar harus 1:1', // Pesan kustom untuk validasi rasio gambar
         ]);
         if ($validator->fails()) {
             return $this->requestKurang($validator->errors());
         }
 
-        $order_flow = OrderFlow::first();
+        $order_flow = OrderFlow::find($request->order_flow_id);
         $icon = null;
         if ($request->file('icon')) {
             $file = $request->file('icon');

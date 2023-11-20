@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('advantages', function (Blueprint $table) {
+            $table->id();
             $table->string('title');
             $table->longText('description');
             $table->string('image_url');

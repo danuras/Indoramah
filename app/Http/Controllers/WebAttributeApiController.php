@@ -18,9 +18,9 @@ class WebAttributeApiController extends Controller
             'long_title' => 'required',
             'main_heading' => 'required',
             'sub_heading' => 'required',
-            'icon' => 'image|mimes:jpeg,png,jpg|max:1024|ratio:1/1',
-            'background_image' => 'image|mimes:jpeg,png,jpg|max:2048|width:1950|height:679',
-            'background_testimonies' => 'image|mimes:jpeg,png,jpg|max:2048|width:1950|height:512',
+            'icon' => 'image|mimes:jpeg,png,jpg|max:1024|dimensions:ratio=1/1',
+            'background_image' => 'image|mimes:jpeg,png,jpg|max:2048|dimensions:width=1950,height=679',
+            'background_testimonies' => 'image|mimes:jpeg,png,jpg|max:2048|dimensions:width=1950,height=512',
         ]);
         if ($validator->fails()) {
             return $this->requestKurang($validator->errors());

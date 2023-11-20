@@ -20,7 +20,7 @@ class ContactApiController extends Controller
             'info_contact' => 'required',
             'embeded_map_url' => 'required',
             'info_location' => 'required',
-            'background_contact' => 'image|mimes:jpeg,png,jpg|max:2048|width:1950|height:679',
+            'background_contact' => 'image|mimes:jpeg,png,jpg|max:2048|dimensions:width=1950,height=679',
         ]);
         if ($validator->fails()) {
             return $this->requestKurang($validator->errors());

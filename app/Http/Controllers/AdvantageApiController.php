@@ -14,7 +14,7 @@ class AdvantageApiController extends Controller
         $validator = Validator::make($request->all(), [
             'title' => 'required',
             'description' => 'required',
-            'image_url' => 'image|mimes:jpeg,png,jpg|max:2048|ratio:1/1',
+            'image_url' => 'image|mimes:jpeg,png,jpg|max:2048|dimensions:ratio=1/1',
         ]);
         if ($validator->fails()) {
             return $this->requestKurang($validator->errors());

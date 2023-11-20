@@ -15,15 +15,15 @@ class CompanyProfileApiController extends Controller
             'description' => 'required',
             'whatsapp_message' => 'required',
             'mission' => 'required',
-            'vission' => 'required',
-            'image_url' => 'image|mimes:jpeg,png,jpg|max:2048|ratio:1/1',
+            'vision' => 'required',
+            'image_url' => 'image|mimes:jpeg,png,jpg|max:2048|dimensions:ratio=1/1',
         ]);
         if ($validator->fails()) {
             return $this->requestKurang($validator->errors());
         }
+        $company_profile = CompanyProfile::first();
         $image_url = null;
         if ($request->file('image_url')) {
-            $company_profile = CompanyProfile::first();
             $file = $request->file('image_url');
             $filename = date('YmdHi') . $file->getClientOriginalName();
             $file->move(public_path('images/company_profile/image_url/'), $filename);
@@ -33,7 +33,7 @@ class CompanyProfileApiController extends Controller
             $company_profile->description = $request->description;
             $company_profile->whatsapp_message = $request->whatsapp_message;
             $company_profile->mission = $request->mission;
-            $company_profile->vission = $request->vission;
+            $company_profile->vision = $request->vision;
             if ($image_url) {
                 $company_profile->image_url = $image_url;
             }
@@ -53,7 +53,7 @@ class CompanyProfileApiController extends Controller
                 'description' => $request->description,
                 'whatsapp_message' => $request->whatsapp_message,
                 'mission' => $request->mission,
-                'vission' => $request->vission,
+                'vision' => $request->vision,
                 'image_url' => $image_url,
             ]);
             if ($company_profile) {

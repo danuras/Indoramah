@@ -24,7 +24,7 @@ class CardApiController extends Controller
             $validator = Validator::make($request->all(), [
                 'text' => 'required',
                 'link' => 'required',
-                'image_url' => 'required|image|mimes:jpeg,png,jpg|max:2048|ratio:1/1',
+                'image_url' => 'required|image|mimes:jpeg,png,jpg|max:2048|dimensions:ratio=1/1',
             ]);
             if ($validator->fails()) {
                 return $this->requestKurang($validator->errors());
@@ -43,7 +43,7 @@ class CardApiController extends Controller
         } else if ($card_box->card_type == 'card-2') {
             $validator = Validator::make($request->all(), [
                 'title' => 'required',
-                'image_url' => 'required|image|mimes:jpeg,png,jpg|max:2048|ratio:3/2',
+                'image_url' => 'required|image|mimes:jpeg,png,jpg|max:2048|dimensions:ratio=3/2',
             ]);
             if ($validator->fails()) {
                 return $this->requestKurang($validator->errors());
@@ -60,7 +60,7 @@ class CardApiController extends Controller
         } else if ($card_box->card_type == 'card-3') {
             $validator = Validator::make($request->all(), [
                 'title' => 'required',
-                'image_url' => 'required|image|mimes:jpeg,png,jpg|max:2048|ratio:1/1',
+                'image_url' => 'required|image|mimes:jpeg,png,jpg|max:2048|dimensions:ratio=1/1',
             ]);
             if ($validator->fails()) {
                 return $this->requestKurang($validator->errors());
@@ -95,7 +95,7 @@ class CardApiController extends Controller
             $validator = Validator::make($request->all(), [
                 'text' => 'required',
                 'link' => 'required',
-                'image_url' => 'image|mimes:jpeg,png,jpg|max:2048|ratio:1/1',
+                'image_url' => 'image|mimes:jpeg,png,jpg|max:2048|dimensions:ratio=1/1',
             ]);
             if ($validator->fails()) {
                 return $this->requestKurang($validator->errors());
@@ -115,7 +115,7 @@ class CardApiController extends Controller
         } else if ($card_box->card_type == 'card-2') {
             $validator = Validator::make($request->all(), [
                 'title' => 'required',
-                'image_url' => 'image|mimes:jpeg,png,jpg|max:2048|ratio:3/2',
+                'image_url' => 'image|mimes:jpeg,png,jpg|max:2048|dimensions:ratio=3/2',
             ]);
             if ($validator->fails()) {
                 return $this->requestKurang($validator->errors());
@@ -134,7 +134,7 @@ class CardApiController extends Controller
         } else if ($card_box->card_type == 'card-3') {
             $validator = Validator::make($request->all(), [
                 'title' => 'required',
-                'image_url' => 'image|mimes:jpeg,png,jpg|max:2048|ratio:1/1',
+                'image_url' => 'image|mimes:jpeg,png,jpg|max:2048|dimensions:ratio=1/1',
             ]);
             if ($validator->fails()) {
                 return $this->requestKurang($validator->errors());

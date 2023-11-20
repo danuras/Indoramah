@@ -14,7 +14,7 @@ class AdvantageContentApiController extends Controller
         $validator = Validator::make($request->all(), [
             'title' => 'required',
             'text' => 'required',
-            'icon' => 'required|image|mimes:jpeg,png,jpg|max:2048|ratio:1/1',
+            'icon' => 'required|image|mimes:jpeg,png,jpg|max:2048|dimensions:ratio=1/1',
         ]);
         if ($validator->fails()) {
             return $this->requestKurang($validator->errors());
@@ -41,7 +41,7 @@ class AdvantageContentApiController extends Controller
             'advantage_id' => 'required',
             'title' => 'required',
             'text' => 'required',
-            'icon' => 'image|mimes:jpeg,png,jpg|max:2048|ratio:1/1',
+            'icon' => 'image|mimes:jpeg,png,jpg|max:2048|dimensions:ratio=1/1',
         ]);
         if ($validator->fails()) {
             return $this->requestKurang($validator->errors());

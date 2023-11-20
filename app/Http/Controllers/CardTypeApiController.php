@@ -28,7 +28,7 @@ class CardTypeApiController extends Controller
         $card->save();
         if ($request->content_type == 'content-1') {
             $validator = Validator::make($request->all(), [
-                'image_url' => 'required|image|mimes:jpeg,png,jpg|max:2048|ratio:3/2',
+                'image_url' => 'required|image|mimes:jpeg,png,jpg|max:2048|dimensions:ratio=3/2',
                 'text' => 'required',
                 'title' => 'required',
             ]);
@@ -91,7 +91,7 @@ class CardTypeApiController extends Controller
         $card = Card::find($card_type->card_id);
         if ($card->content_type == 'content-1') {
             $validator = Validator::make($request->all(), [
-                'image_url' => 'image|mimes:jpeg,png,jpg|max:2048|ratio:3/2',
+                'image_url' => 'image|mimes:jpeg,png,jpg|max:2048|dimensions:ratio=3/2',
                 'text' => 'required',
                 'title' => 'required',
             ]);

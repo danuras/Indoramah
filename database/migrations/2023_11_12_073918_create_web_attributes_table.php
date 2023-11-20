@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('web_attributes', function (Blueprint $table) {
+            $table->id();
             $table->string('title');
             $table->string('icon')->nullable();
             $table->string('short_description');

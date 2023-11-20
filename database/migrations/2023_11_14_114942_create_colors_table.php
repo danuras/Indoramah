@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('colors', function (Blueprint $table) {
+            $table->id();
             $table->string('header_text_color')->default('#FFFFFF');
             $table->string('common_text_color')->default('#A6A6A6');
             $table->string('background_color_1')->default('#FFFFFF');
