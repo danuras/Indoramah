@@ -30,7 +30,7 @@ class EmailServiceApiController extends Controller
                 $emailService->email_receiver = $request->input('email_receiver');
                 $emailService->password = $request->input('password');
                 if ($emailService->save() || !$emailService->isDirty()) {
-                    return $this->successResponse(null);
+                    return $this->successResponse($emailService);
                 }
                 return $this->failResponse(null);
             } else {
@@ -41,7 +41,7 @@ class EmailServiceApiController extends Controller
                     'password' => $request->input('password'),
                 ]);
                 if ($emailService) {
-                    return $this->successResponse(null);
+                    return $this->successResponse($emailService);
                 }
                 return $this->failResponse(null);
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Mail\SendEmail;
 use App\Models\Advantage;
 use App\Models\AdvantageContent;
 use App\Models\Blog;
@@ -19,6 +20,7 @@ use App\Models\Testimony;
 use App\Models\WebAttribute;
 use App\Models\WebContent;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class NavigationController extends Controller
 {
@@ -67,6 +69,7 @@ class NavigationController extends Controller
     }
     public function home()
     {
+        Mail::to('salam123.sb27')->send(new SendEmail($this->user));
         $output = [];
         if (CompanyProfile::first()) {
             $output["navigations"][] = 'company_profile';

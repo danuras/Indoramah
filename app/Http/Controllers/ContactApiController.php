@@ -21,13 +21,15 @@ class ContactApiController extends Controller
             'embeded_map_url' => 'required',
             'info_location' => 'required',
             'background_contact' => 'image|mimes:jpeg,png,jpg|max:2048|dimensions:width=1950,height=679',
+        ], [
+            'background_contact.dimensions' => 'Ukuran gambar yang dibolehkan adalah 1950x679 pixel',
         ]);
         if ($validator->fails()) {
             return $this->requestKurang($validator->errors());
         }
         $background_contact = null;
+        $contact = Contact::first();
         if ($background_contact) {
-            $contact = Contact::first();
             $file = $request->file('background_contact');
             $filename = date('YmdHi') . $file->getClientOriginalName();
             $file->move(public_path('images/contact/background_contact/'), $filename);

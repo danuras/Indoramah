@@ -22,14 +22,14 @@
     ])
     <div class="wrapper row3" style="background-image:url({{ asset($contact->background_contact) }});">
         <main class="hoc container clear">
-            <div class="group btmspace-50 center">
+            <div class="group btmspace-50">
                 <div class="two_quarter first mail_box">
                     {!! $contact->info_contact !!}
                     <br>
                     <br>
-                    <footer><a class="btn"
+                    <center><footer><a class="btn"
                             href="https://wa.me/{{$contact->whatsapp}}?text={{$contact->whatsapp_message}}."><i
-                                class="fa fa-whatsapp my-float"></i> (WA) Hubungi - {{$contact->whatsapp}}</a></footer>
+                                class="fa fa-whatsapp my-float"></i> (WA) Hubungi - {{$contact->whatsapp}}</a></footer></center>
                 </div>
                 <div class="two_quarter  mail_box" id="comments">
                     <h3>Kirim Email</h3>
@@ -58,11 +58,13 @@
                             <label for="message" class="text_left">Isi pesan <span>*</span></label>
                             <textarea name="message" id="message" cols="25" rows="10" required></textarea>
                         </div>
-                        <div>
-                            <input type="submit" name="submit" value="Kirim Pesan">
-                            &nbsp;
-                            <input type="reset" name="reset" value="Reset">
-                        </div>
+                        <center>
+                            <div>
+                                <input type="submit" name="submit" value="Kirim Pesan">
+                                &nbsp;
+                                <input type="reset" name="reset" value="Reset">
+                            </div>
+                        </center>
                         @if (session('success'))
                             <div class="alert alert-success mb-1 mt-1">
                                 {{ session('success') }}
