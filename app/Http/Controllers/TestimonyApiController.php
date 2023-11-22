@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Testimony;
+use App\Models\WebAttribute;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -33,6 +34,26 @@ class TestimonyApiController extends Controller
         ]);
         if ($testimony) {
             return $this->successResponse($testimony);
+        }
+        return $this->failResponse(null);
+    }
+
+    public function updateBackground(Request $request){
+        $validator = Validator::make($request->all(), [
+            'background_testimonies' => 'required|image|mimes:jpeg,png,jpg|max:2048|dimensions:width=1950,height=512',
+        ], [
+            'background_contact.dimensions' => 'Ukuran gambar yang dibolehkan adalah 1950x679 pixel',
+        ]);
+        if ($validator->fails()) {
+            return $this->requestKurang($validator->errors());
+        }
+
+        $web_attribute = WebAttribute::first();
+        $web_attribute->background_testimonies = $request->background_testimonies;
+
+
+        if ($web_attribute->save() || !$web_attribute->isDirty()) {
+            return $this->successResponse($web_attribute);
         }
         return $this->failResponse(null);
     }
@@ -85,6 +106,10 @@ class TestimonyApiController extends Controller
     public function show()
     {
         $testimonies = Testimony::get();
-        return $this->successResponse($testimonies);
+        $backgroun_testimonies = WebAttribute::first()->background_testimonies;
+        return $this->successResponse([
+            'testimonies'=>$testimonies,
+            'background_testimonies'=>$backgroun_testimonies,
+        ]);
     }
 }

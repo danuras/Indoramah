@@ -70,6 +70,24 @@ class ContactApiController extends Controller
         }
     }
 
+    public function updateLocation(Request $request){
+        $validator = Validator::make($request->all(), [
+            'info_location' => 'required',
+            'embeded_map_url' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return $this->requestKurang($validator->errors());
+        }
+        $contact= Contact::first();
+        $contact->info_location = $request->info_location;
+        $contact->embeded_map_url = $request->embeded_map_url;
+
+        if ($contact->save()) {
+            return $this->successResponse($contact);
+        }
+        return $this->failResponse(null);
+    }
+
     public function show()
     {
         $contact = Contact::first();

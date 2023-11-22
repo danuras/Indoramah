@@ -106,6 +106,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::prefix('contact')->group(function () {
         Route::post('create-or-update', [ContactApiController::class, 'createOrUpdate']);
+        Route::post('update-location', [ContactApiController::class, 'updateLocation']);
         Route::get('show', [ContactApiController::class, 'show']);
     });
 
@@ -135,6 +136,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::prefix('testimony')->group(function () {
         Route::post('create', [TestimonyApiController::class, 'create']);
         Route::post('update', [TestimonyApiController::class, 'update']);
+        Route::post('update-background', [TestimonyApiController::class, 'updateBackground']);
         Route::delete('delete/{id}', [TestimonyApiController::class, 'delete']);
         Route::get('show', [TestimonyApiController::class, 'show']);
     });

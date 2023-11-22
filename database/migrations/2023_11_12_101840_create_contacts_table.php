@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('address');
             $table->string('email');
             $table->longText('info_contact');
-            $table->longText('embeded_map_url');
-            $table->longText('info_location');
+            $table->longText('embeded_map_url')->nullable();
+            $table->longText('info_location')->nullable();
             $table->string('background_contact');
             $table->timestamps();
         });

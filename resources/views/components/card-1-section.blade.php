@@ -11,6 +11,7 @@
         <main class="hoc container clear">
             <div class="btmspace-50 center">
                 <h3 class="btmspace-10">{{ $cb->title }}</h3>
+                <p>{{ $cb->info }}</p>
             </div>
 
             <div class="group btmspace-50 center">
@@ -60,4 +61,5 @@
         </main>
     </div>
 </body>
+
 </html>

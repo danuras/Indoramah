@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Advantage;
+use App\Models\AdvantageContent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -15,6 +16,8 @@ class AdvantageApiController extends Controller
             'title' => 'required',
             'description' => 'required',
             'image_url' => 'image|mimes:jpeg,png,jpg|max:2048|dimensions:ratio=1/1',
+        ], [
+            'image_url.dimensions' => 'Rasio gambar harus 1:1',
         ]);
         if ($validator->fails()) {
             return $this->requestKurang($validator->errors());
@@ -58,7 +61,11 @@ class AdvantageApiController extends Controller
 
     public function show()
     {
-        $contact = Advantage::first();
-        return $this->successResponse($contact);
+        $advantage = Advantage::first();
+        $advantage_contents = AdvantageContent::get();
+        return $this->successResponse([
+            'advantage' => $advantage,
+            'advantage_contents' => $advantage_contents,
+        ]);
     }
 }

@@ -58,7 +58,6 @@ class WebAttributeApiController extends Controller
         } else {
             $validator = Validator::make($request->all(), [
                 'background_image' => 'required',
-                'background_testimonies' => 'required',
             ]);
             if ($validator->fails()) {
                 return $this->requestKurang($validator->errors());
@@ -69,10 +68,6 @@ class WebAttributeApiController extends Controller
             $file->move(public_path('images/web_attribute/background_image/'), $filename);
             $background_image = 'images/web_attribute/background_image/' . $filename;
 
-            $file = $request->file('background_testimonies');
-            $filename = date('YmdHi') . $file->getClientOriginalName();
-            $file->move(public_path('images/web_attribute/background_testimonies/'), $filename);
-            $background_testimonies = 'images/web_attribute/background_testimonies/' . $filename;
 
             $webAttribute = WebAttribute::create([
                 'title' => $request->title,
@@ -82,7 +77,6 @@ class WebAttributeApiController extends Controller
                 'main_heading' => $request->main_heading,
                 'sub_heading' => $request->sub_heading,
                 'background_image' => $background_image,
-                'background_testimonies' => $background_testimonies,
             ]);
             if ($webAttribute) {
                 return $this->successResponse($webAttribute);

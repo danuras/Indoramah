@@ -11,6 +11,7 @@
         <main class="hoc container clear">
             <div class="btmspace-50 center">
                 <h3 class="btmspace-10">{{ $cb->title }}</h3>
+                <p>{{ $cb->info }}</p>
             </div>
             @for ($i = 0; $i < sizeof($cb->cards) / 4; $i++)
                 <ul class="nospace clear services">
