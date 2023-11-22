@@ -35,17 +35,17 @@
                     @endif
                 @endif
             @endforeach
-        @elseif($wc->content_type == 'advantage')
+        @elseif($wc->content_type == 'advantage' && in_array('advantage', $navigations))
             @include('components.advantage-section', ['advantage'=>$advantage, 'rank' => $wc->rank])
-        @elseif($wc->content_type == 'testimony')
+        @elseif($wc->content_type == 'testimony'  && in_array('testimony', $navigations))
             @include('components.testimonies-section', [
                 'testimonies' => $testimonies,
                 'background_image' => $web_attribute->background_testimonies, 
                 'rank' => $wc->rank,
             ])
-        @elseif($wc->content_type == 'blog')
+        @elseif($wc->content_type == 'blog'  && in_array('blog', $navigations))
             @include('components.blog-section', ['blogs'=>$blogs, 'rank' => $wc->rank])
-        @elseif($wc->content_type == 'maps')
+        @elseif($wc->content_type == 'maps'  && in_array('maps', $navigations))
             @include('components.maps', ['maps'=>$maps, 'rank' => $wc->rank])
         @endif
     @endforeach

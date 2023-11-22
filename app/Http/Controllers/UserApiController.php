@@ -8,6 +8,7 @@ use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rules\Password;
 
 class UserApiController extends Controller
 {
@@ -19,16 +20,12 @@ class UserApiController extends Controller
             'password' => [
                 'required',
                 'string',
-                'min:8',
-                // must be at least 10 characters in length
-                'regex:/[a-z]/',
-                // must contain at least one lowercase letter
-                'regex:/[A-Z]/',
-                // must contain at least one uppercase letter
-                'regex:/[0-9]/',
-                // must contain at least one digit
-                'regex:/[@$!%*#?&]/',
-                // must contain a special character
+                Password::min(8)
+                    ->letters()
+                    ->numbers()
+                    ->symbols()
+                    ->uncompromised(),
+                'confirmed',
             ],
         ]);
         if ($validator->fails()) {
@@ -99,5 +96,15 @@ class UserApiController extends Controller
             return $this->failedResponse(null);
         }
         return $this->unauthorized();
+    }
+
+    public function show()
+    {
+        if (Auth::user()->can('is-primary')) {
+            $users = User::get();
+            return $this->successResponse($users);
+        } else {
+            return $this->unauthorized();
+        }
     }
 }

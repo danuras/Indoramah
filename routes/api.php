@@ -143,6 +143,7 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/register-user', [UserApiController::class, 'registerUser']);
         Route::post('/delete', [UserApiController::class, 'delete']);
         Route::post('/change-primary', [UserApiController::class, 'changePrimary']);
+        Route::get('/show', [UserApiController::class, 'show']);
     });
     
     Route::prefix('web-attribute')->group(function () {
@@ -151,9 +152,17 @@ Route::middleware('auth:sanctum')->group(function () {
     });
 
     Route::prefix('web-content')->group(function () {
-        Route::post('create', [WebContentApiController::class, 'create']);
+        Route::post('create-card', [WebContentApiController::class, 'createCard']);
+        Route::post('create-advantage', [WebContentApiController::class, 'createAdvantage']);
+        Route::post('create-maps', [WebContentApiController::class, 'createMaps']);
+        Route::post('create-testimony', [WebContentApiController::class, 'createTestimony']);
+        Route::post('create-blog', [WebContentApiController::class, 'createBlog']);
         Route::post('update', [WebContentApiController::class, 'update']);
-        Route::delete('delete/{id}', [WebContentApiController::class, 'delete']);
+        Route::delete('delete-card/{id}', [WebContentApiController::class, 'deleteCard']);
+        Route::delete('delete-advantage/{id}', [WebContentApiController::class, 'deleteAdvantage']);
+        Route::delete('delete-maps/{id}', [WebContentApiController::class, 'deleteMaps']);
+        Route::delete('delete-testimony/{id}', [WebContentApiController::class, 'deleteTestimony']);
+        Route::delete('delete-blog/{id}', [WebContentApiController::class, 'deleteBlog']);
         Route::get('show', [WebContentApiController::class, 'show']);
     });
 });

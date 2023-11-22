@@ -22,25 +22,8 @@
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
-            <div class="item active">
-                <!-- Bagian 3 -->
-                <div class="wrapper bgded overlay"
-                    style="background-image:url({{ asset($background_image) }});">
-                    <div class="hoc container clear">
-                        <div class="testimonial clear">
-                            <blockquote>{{$testimonies[0]->value }}
-                            </blockquote>
-                            <figure><img class="circle" src="{{ asset($testimonies[0]->photo_profile) }}" alt="">
-                                <figcaption><strong>{{$testimonies[0]->name}}</strong><br>
-                                    <em>{{$testimonies[0]->job}}</em>
-                                </figcaption>
-                            </figure>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @for ($i = 1; $i < sizeof($testimonies); $i++)
-                <div class="item">
+            @for ($i = 0; $i < sizeof($testimonies); $i++)
+                <div class="item {{$i == 0? 'active': ''}}">
                     <!-- Bagian 3 -->
                     <div class="wrapper bgded overlay"
                         style="background-image:url({{ asset($background_image) }});">

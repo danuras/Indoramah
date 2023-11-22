@@ -19,6 +19,15 @@ class AuthApiController extends Controller
     // otentikasi user
     public function login(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|exists:users,email',
+            'password' => 'required',
+        ], [
+            'email.exists' => 'email tidak terdaftar',
+        ]);
+        if ($validator->fails()) {
+            return $this->requestKurang($validator->errors());
+        }
         $email = $request->input('email');
         $password = $request->input('password');
 
@@ -51,12 +60,14 @@ class AuthApiController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'email' => 'required|exists:users,email',
+        ], [
+            'email.exists' => 'email tidak terdaftar',
         ]);
         if ($validator->fails()) {
             return $this->requestKurang($validator->errors());
         }
         $user = User::where('email', $request->input('email'))->first();
-        if ($user->token_expired_at < Carbon::now() || $user->token_expired_at == null) { 
+        if ($user->token_expired_at < Carbon::now() || $user->token_expired_at == null) {
             $token = Str::random(6);
             $user->token = Hash::make($token);
             $user->token_expired_at = Carbon::now()->addMinutes(5);
@@ -66,14 +77,10 @@ class AuthApiController extends Controller
                 return $this->successResponse($user);
             }
             return $this->failResponse($user);
-       }
+        }
 
         $diff = Carbon::createFromFormat('Y-m-d H:i:s', $user->token_expired_at)->diff(Carbon::now());
-        return response()->json([
-            'success' => false,
-            'message' => 'Tunggu sampai ' . $diff->format('%i menit, %s detik') . ' lagi untuk mengirimkan kode verifikasi',
-            'data' => '',
-        ], 402);
+        return $this->requestKurang(['message' => 'Tunggu sampai ' . $diff->format('%i menit, %s detik') . ' lagi untuk mengirimkan kode verifikasi',], );
     }
     // mengirimkan email berisi kode verifikasi
     public function sendTokenVerification(Request $request)
@@ -91,11 +98,7 @@ class AuthApiController extends Controller
             return $this->failResponse($user);
         }
         $diff = Carbon::createFromFormat('Y-m-d H:i:s', $user->token_expired_at)->diff(Carbon::now());
-        return response()->json([
-            'success' => false,
-            'message' => 'Tunggu sampai ' . $diff->format('%i menit, %s detik') . ' lagi untuk mengirimkan kode verifikasi',
-            'data' => '',
-        ], 402);
+        return $this->requestKurang(['message' => 'Tunggu sampai ' . $diff->format('%i menit, %s detik') . ' lagi untuk mengirimkan kode verifikasi',], );
     }
 
     // Mengganti password

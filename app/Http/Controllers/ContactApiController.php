@@ -17,9 +17,7 @@ class ContactApiController extends Controller
             'call_number' => 'required',
             'address' => 'required',
             'email' => 'required',
-            'info_contact' => 'required',
             'embeded_map_url' => 'required',
-            'info_location' => 'required',
             'background_contact' => 'image|mimes:jpeg,png,jpg|max:2048|dimensions:width=1950,height=679',
         ], [
             'background_contact.dimensions' => 'Ukuran gambar yang dibolehkan adalah 1950x679 pixel',
@@ -42,8 +40,6 @@ class ContactApiController extends Controller
             $contact->address = $request->address;
             $contact->email = $request->email;
             $contact->info_contact = $request->info_contact;
-            $contact->embeded_map_url = $request->embeded_map_url;
-            $contact->info_location = $request->info_location;
             if ($background_contact) {
                 $contact->background_contact = $background_contact;
             }
@@ -65,8 +61,6 @@ class ContactApiController extends Controller
                 'address' => $request->address,
                 'email' => $request->email,
                 'info_contact' => $request->info_contact,
-                'embeded_map_url' => $request->embeded_map_url,
-                'info_location' => $request->info_location,
                 'background_contact' => $background_contact,
             ]);
             if ($contact) {

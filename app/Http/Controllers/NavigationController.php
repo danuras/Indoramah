@@ -106,16 +106,12 @@ class NavigationController extends Controller
                 }
             } else if ($wc->content_type == 'testimony') {
                 $testimonies = Testimony::get();
-                if ($testimonies->isNotEmpty()) {
-                    $output["navigations"][] = 'testimony';
-                    $output['testimonies'] = $testimonies;
-                }
+                $output["navigations"][] = 'testimony';
+                $output['testimonies'] = $testimonies;
             } else if ($wc->content_type == 'blog') {
                 $blogs = Blog::take(2)->get();
-                if ($blogs->isNotEmpty()) {
                     $output["navigations"][] = 'blog';
                     $output['blogs'] = $blogs;
-                }
             } else if ($wc->content_type == 'maps') {
                 $maps = Contact::select('info_location', 'embeded_map_url')->first();
                 if ($maps->embeded_map_url) {
@@ -131,7 +127,7 @@ class NavigationController extends Controller
     {
         $output = $this->getFooterOutput();
         $output['advantage'] = Advantage::select('image_url')->first();
-        $output['advantage_contents'] = AdvantageContent::get(); 
+        $output['advantage_contents'] = AdvantageContent::get();
 
         return view('pages.advantage', $output);
     }
@@ -157,10 +153,10 @@ class NavigationController extends Controller
             $output['cards'] = Card::select('text', 'link', 'image_url', 'content_type')->where('card_box_id', $id)->paginate(9, ['*'], 'cards');
             return view('pages.card-1', $output);
         } else if ($type == 'card-2') {
-            $output['cards'] =Card::select('id', 'image_url', 'title', 'content_type')->where('card_box_id', $id)->paginate(16, ['*'], 'cards');
+            $output['cards'] = Card::select('id', 'image_url', 'title', 'content_type')->where('card_box_id', $id)->paginate(16, ['*'], 'cards');
             return view('pages.card-2', $output);
         } else if ($type == 'card-3') {
-            $output['cards'] =Card::select('image_url', 'title', 'content_type')->where('card_box_id', $id)->paginate(16, ['*'], 'cards');
+            $output['cards'] = Card::select('image_url', 'title', 'content_type')->where('card_box_id', $id)->paginate(16, ['*'], 'cards');
             return view('pages.card-3', $output);
         }
     }
