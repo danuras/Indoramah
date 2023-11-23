@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class ContentType extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'image_url',
+        'title',
+        'text',
+        'card_type_id',
+    ];
 }

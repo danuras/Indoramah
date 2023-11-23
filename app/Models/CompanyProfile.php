@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class CompanyProfile extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'description',
+        'image_url',
+        'whatsapp_messsage',
+        'mission',
+        'vision',
+    ];
 }

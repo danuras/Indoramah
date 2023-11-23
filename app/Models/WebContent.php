@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class WebContent extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'content_type',
+        'card_box_id',
+        'rank',
+    ];
 }

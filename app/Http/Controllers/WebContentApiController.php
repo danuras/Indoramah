@@ -20,7 +20,6 @@ class WebContentApiController extends Controller
     public function createCard(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'content_type' => 'required',
             'rank' => 'required',
             'card_type' => 'required',
             'title' => 'required',
@@ -35,18 +34,20 @@ class WebContentApiController extends Controller
             'title' => $request->title,
             'info' => $request->info,
         ]);
-        $web_content = WebContent::create([
-            'content_type' => $request->content_type,
-            'card_box_id' => $card_box->id,
-            'rank' => $request->rank,
-        ]);
         $iwc = DB::table('web_contents')
             ->where('rank', '>=', $request->rank)
             ->increment('rank');
+        $web_content = WebContent::create([
+            'content_type' => 'card',
+            'card_box_id' => $card_box->id,
+            'rank' => $request->rank,
+        ]);
 
-        if ($web_content && $iwc && $card_box) {
+
+        if ($web_content && $card_box) {
             DB::commit();
-            return $this->successResponse($web_content);
+            $web_contents = WebContent::leftJoin('card_boxes', 'card_boxes.id', '=', 'web_contents.card_box_id', )->select('web_contents.id', 'web_contents.rank', 'web_contents.card_box_id', 'web_contents.content_type', 'card_boxes.card_type', 'card_boxes.title')->where('web_contents.id', $web_content->id)->first();
+            return $this->successResponse($web_contents);
         }
         DB::rollBack();
         return $this->failResponse(null);
@@ -55,7 +56,6 @@ class WebContentApiController extends Controller
     public function createAdvantage(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'content_type' => 'required',
             'rank' => 'required',
             'description' => 'required',
             'title' => 'required',
@@ -77,19 +77,20 @@ class WebContentApiController extends Controller
             'description' => $request->description,
             'image_url' => $image_url,
         ]);
-
-        $web_content = WebContent::create([
-            'content_type' => $request->content_type,
-            'rank' => $request->rank,
-        ]);
-
         $iwc = DB::table('web_contents')
             ->where('rank', '>=', $request->rank)
             ->increment('rank');
 
-        if ($web_content && $advantage && $iwc) {
+        $web_content = WebContent::create([
+            'content_type' => 'advantage',
+            'rank' => $request->rank,
+        ]);
+
+
+        if ($web_content && $advantage) {
+            $web_contents = WebContent::leftJoin('card_boxes', 'card_boxes.id', '=', 'web_contents.card_box_id', )->select('web_contents.id', 'web_contents.rank', 'web_contents.card_box_id', 'web_contents.content_type', 'card_boxes.card_type', 'card_boxes.title')->where('web_contents.id', $web_content->id)->first();
             DB::commit();
-            return $this->successResponse($web_content);
+            return $this->successResponse($web_contents);
         }
         DB::rollBack();
     }
@@ -98,7 +99,6 @@ class WebContentApiController extends Controller
     public function createMaps(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'content_type' => 'required',
             'rank' => 'required',
             'info_location' => 'required',
             'embeded_map_url' => 'required',
@@ -111,17 +111,18 @@ class WebContentApiController extends Controller
         $contact->info_location = $request->info_location;
         $contact->embeded_map_url = $request->embeded_map_url;
 
-        $web_content = WebContent::create([
-            'content_type' => $request->content_type,
-            'rank' => $request->rank,
-        ]);
-
         $iwc = DB::table('web_contents')
             ->where('rank', '>=', $request->rank)
             ->increment('rank');
-        if ($web_content && $contact->save() && $iwc) {
+        $web_content = WebContent::create([
+            'content_type' => 'maps',
+            'rank' => $request->rank,
+        ]);
+
+        if ($web_content && $contact->save()) {
+            $web_contents = WebContent::leftJoin('card_boxes', 'card_boxes.id', '=', 'web_contents.card_box_id', )->select('web_contents.id', 'web_contents.rank', 'web_contents.card_box_id', 'web_contents.content_type', 'card_boxes.card_type', 'card_boxes.title')->where('web_contents.id', $web_content->id)->first();
             DB::commit();
-            return $this->successResponse($web_content);
+            return $this->successResponse($web_contents);
         }
         DB::rollBack();
     }
@@ -129,7 +130,6 @@ class WebContentApiController extends Controller
     public function createTestimony(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'content_type' => 'required',
             'rank' => 'required',
             'value' => 'required',
             'photo_profile' => 'required|image|mimes:jpeg,png,jpg|max:1024|dimensions:ratio=1/1',
@@ -164,18 +164,19 @@ class WebContentApiController extends Controller
             'job' => $request->job,
             'photo_profile' => $photo_profile,
         ]);
-
-        $web_content = WebContent::create([
-            'content_type' => $request->content_type,
-            'rank' => $request->rank,
-        ]);
-
         $iwc = DB::table('web_contents')
             ->where('rank', '>=', $request->rank)
             ->increment('rank');
-        if ($web_content && $testimony && $web_attribute->save() && $iwc) {
+
+        $web_content = WebContent::create([
+            'content_type' => 'testimony',
+            'rank' => $request->rank,
+        ]);
+
+        if ($web_content && $testimony && $web_attribute->save()) {
+            $web_contents = WebContent::leftJoin('card_boxes', 'card_boxes.id', '=', 'web_contents.card_box_id', )->select('web_contents.id', 'web_contents.rank', 'web_contents.card_box_id', 'web_contents.content_type', 'card_boxes.card_type', 'card_boxes.title')->where('web_contents.id', $web_content->id)->first();
             DB::commit();
-            return $this->successResponse($web_content);
+            return $this->successResponse($web_contents);
         }
         DB::rollBack();
     }
@@ -183,7 +184,6 @@ class WebContentApiController extends Controller
     public function createBlog(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'content_type' => 'required',
             'rank' => 'required',
             'title' => 'required',
             'date_published' => 'required',
@@ -192,7 +192,7 @@ class WebContentApiController extends Controller
             'link' => 'required',
             'image_url' => 'required|image|mimes:jpeg,png,jpg|max:2048|dimensions:ratio=16/9',
         ], [
-            'image_url.dimenstions' => 'Rasio gambar harus 16:9'
+            'image_url.dimensions' => 'Rasio gambar harus 16:9',
         ]);
         if ($validator->fails()) {
             return $this->requestKurang($validator->errors());
@@ -211,18 +211,19 @@ class WebContentApiController extends Controller
             'link' => $request->link,
             'image_url' => $image_url,
         ]);
-
-        $web_content = WebContent::create([
-            'content_type' => $request->content_type,
-            'rank' => $request->rank,
-        ]);
-
         $iwc = DB::table('web_contents')
             ->where('rank', '>=', $request->rank)
             ->increment('rank');
-        if ($web_content && $blog && $iwc) {
+
+        $web_content = WebContent::create([
+            'content_type' => 'blog',
+            'rank' => $request->rank,
+        ]);
+
+        if ($web_content && $blog) {
+            $web_contents = WebContent::leftJoin('card_boxes', 'card_boxes.id', '=', 'web_contents.card_box_id', )->select('web_contents.id', 'web_contents.rank', 'web_contents.card_box_id', 'web_contents.content_type', 'card_boxes.card_type', 'card_boxes.title')->where('web_contents.id', $web_content->id)->first();
             DB::commit();
-            return $this->successResponse($web_content);
+            return $this->successResponse($web_contents);
         }
         DB::rollBack();
     }
@@ -242,15 +243,15 @@ class WebContentApiController extends Controller
         if ($web_content->rank > $request->rank) {
             DB::table('web_contents')
                 ->where([
-                    ['rank', '>', $web_content->rank],
-                    ['rank', '<=', $request->rank],
+                    ['rank', '<', $web_content->rank],
+                    ['rank', '>=', $request->rank],
                 ])
                 ->increment('rank');
         } else {
             DB::table('web_contents')
                 ->where([
-                    ['rank', '>=', $web_content->rank],
-                    ['rank', '<', $request->rank],
+                    ['rank', '>', $web_content->rank],
+                    ['rank', '<=', $request->rank],
                 ])
                 ->decrement('rank');
         }
@@ -273,7 +274,7 @@ class WebContentApiController extends Controller
         $dwc = DB::table('web_contents')
             ->where('rank', '>', $web_content->rank)
             ->decrement('rank');
-        if ($web_content->delete() && $card_box->delete() && $dwc) {
+        if ($web_content->delete() && $card_box->delete()) {
             DB::commit();
             return $this->successResponse($web_content);
         }
@@ -287,13 +288,13 @@ class WebContentApiController extends Controller
         $web_content = WebContent::find($id);
         DB::beginTransaction();
 
-        $a = Advantage::truncate();
-        $ac = AdvantageContent::truncate();
+        $a = DB::table('advantages')->delete();
+        $ac = DB::table('advantage_contents')->delete();
 
         $dwc = DB::table('web_contents')
             ->where('rank', '>', $web_content->rank)
             ->decrement('rank');
-        if ($web_content->delete() && $a && $ac && $dwc) {
+        if ($web_content->delete()) {
             DB::commit();
             return $this->successResponse($web_content);
         }
@@ -314,7 +315,7 @@ class WebContentApiController extends Controller
         $dwc = DB::table('web_contents')
             ->where('rank', '>', $web_content->rank)
             ->decrement('rank');
-        if ($web_content->delete() && $contact->save() && $dwc) {
+        if ($web_content->delete() && $contact->save()) {
             DB::commit();
             return $this->successResponse($web_content);
         }
@@ -330,12 +331,12 @@ class WebContentApiController extends Controller
         $web_attribute = WebAttribute::first();
         $web_attribute->background_testimonies = null;
 
-        $t = Testimony::truncate();
+        $t = DB::table('testimonies')->delete();
 
         $dwc = DB::table('web_contents')
             ->where('rank', '>', $web_content->rank)
             ->decrement('rank');
-        if ($web_content->delete() && $t && $web_attribute->save() && $dwc) {
+        if ($web_content->delete() && $web_attribute->save()) {
             DB::commit();
             return $this->successResponse($web_content);
         }
@@ -349,12 +350,12 @@ class WebContentApiController extends Controller
         $web_content = WebContent::find($id);
         DB::beginTransaction();
 
-        $b = Blog::truncate();
+        $b = DB::table('blogs')->delete();
 
         $dwc = DB::table('web_contents')
             ->where('rank', '>', $web_content->rank)
             ->decrement('rank');
-        if ($web_content->delete() && $b && $dwc) {
+        if ($web_content->delete()) {
             DB::commit();
             return $this->successResponse($web_content);
         }

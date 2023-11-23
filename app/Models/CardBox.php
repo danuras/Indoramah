@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class CardBox extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'card_type',
+        'title',
+        'info',
+    ];
 
     public function cards()
     {

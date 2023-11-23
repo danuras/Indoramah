@@ -9,6 +9,15 @@ class CardType extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'image_url',
+        'text',
+        'whatsapp_message',
+        'sub_content_title',
+        'card_id',
+    ];
+
     public function content_types()
     {
         return $this->hasMany(ContentType::class, 'card_type_id');
