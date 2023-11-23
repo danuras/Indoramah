@@ -41,8 +41,7 @@
         echo $out; ?>;
     }
 
-    #mainav li li:hover>a
-    #mainav .active .active>a {
+    #mainav li li:hover>a #mainav .active .active>a {
         color: <?php echo $color->header_text_color; ?>;
     }
 
@@ -133,35 +132,38 @@
         color: <?php echo $color->header_text_color; ?>;
 
     }
-    .carousel .carousel-indicators li  {
+
+    .carousel .carousel-indicators li {
         border-color: <?php echo $color->header_text_color; ?>;
     }
+
     .carousel .carousel-indicators .active {
         background-color: <?php echo $color->header_text_color; ?>;
     }
 
-    .carousel .carousel-control{
+    .carousel .carousel-control {
         color: <?php echo $color->header_text_color; ?>;
 
     }
 
-    .carousel .carousel-control:hover{
+    .carousel .carousel-control:hover {
         color: <?php echo $color->header_text_color; ?>;
     }
 
-    
-    .carousel .carousel-control:focus{
+
+    .carousel .carousel-control:focus {
         color: <?php echo $color->header_text_color; ?>;
     }
+
     /* Blog */
-    
-	.one_half p {
+
+    .one_half p {
         color: <?php echo $color->common_text_color; ?>;
-	}
+    }
 
     .one_half a {
         border-color: <?php echo $color->common_text_color; ?>;
-	}
+    }
 
 
     /* FOOTER */
@@ -174,9 +176,10 @@
     #footer .title {
         border-bottom: 1px solid <?php echo $color->background_color_1; ?>;
     }
-    #copyright .fl_left{
+
+    #copyright .fl_left {
         color: <?php echo $color->header_text_color; ?>;
-        
+
     }
 
     #footer ul li,
@@ -228,8 +231,9 @@
         color: <?php echo $color->common_text_color; ?>;
         background-color: <?php echo $color->background_color_2; ?>;
     }
+
     .row5 {
-        background-color: <?php echo $color->background_color_2.'ee'; ?>;
+        background-color: <?php echo $color->background_color_2 . 'ee'; ?>;
     }
 
     .btn {
@@ -264,21 +268,24 @@
         color: <?php echo $color->header_text_color; ?>;
         background-color: <?php echo $color->highlight_color; ?>;
     }
+
     /* Pagination */
     .pagination .page-link {
         color: <?php echo $color->highlight_color; ?>;
-        
+
     }
+
     .pagination .page-item {
         color: <?php echo $color->header_text_color; ?>;
         border-color: <?php echo $color->highlight_color; ?>;
     }
+
     .pagination .page-item .page-link:hover {
         color: <?php echo $color->header_text_color; ?>;
         background-color: <?php echo $color->highlight_color; ?>;
         border-color: <?php echo $color->highlight_color; ?>;
     }
-    
+
     .pagination .active .page-link {
         background-color: <?php echo $color->highlight_color; ?>;
         color: <?php echo $color->header_text_color; ?>;
@@ -290,11 +297,25 @@
         color: <?php echo $color->header_text_color; ?>;
         border-color: <?php echo $color->highlight_color; ?>;
     }
-    
-    .pagination .page-item a{
+
+    .pagination .page-item a {
         background-color: transparent;
         border-color: <?php echo $color->highlight_color; ?>;
         color: <?php echo $color->highlight_color; ?>;
+    }
+
+    /* Content Card */
+    .content_card_1 li {
+        background-color: <?php echo $color->card_color; ?>;
+    }
+
+    .content_card_2 li {
+
+        border: <?php echo $color->card_color; ?> 1px solid;
+    }
+
+    .advantage_card {
+        background-color: <?php echo $color->card_color; ?>;
     }
 </style>
 

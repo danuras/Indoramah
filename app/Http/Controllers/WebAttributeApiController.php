@@ -20,6 +20,10 @@ class WebAttributeApiController extends Controller
             'sub_heading' => 'required',
             'icon' => 'image|mimes:jpeg,png,jpg|max:1024|dimensions:ratio=1/1',
             'background_image' => 'image|mimes:jpeg,png,jpg|max:2048|dimensions:width=1950,height=679',
+        ], [
+            'background_image.dimensions' => 'Ukuran gambar yang dibolehkan adalah 1950x679 piksel', // Pesan kustom untuk validasi rasio gambar
+            'icon.dimensions' => 'Rasio gambar harus 1:1', // Pesan kustom untuk validasi rasio gambar
+
         ]);
         if ($validator->fails()) {
             return $this->requestKurang($validator->errors());

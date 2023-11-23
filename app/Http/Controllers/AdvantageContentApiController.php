@@ -15,6 +15,8 @@ class AdvantageContentApiController extends Controller
             'title' => 'required',
             'text' => 'required',
             'icon' => 'required|image|mimes:jpeg,png,jpg|max:2048|dimensions:ratio=1/1',
+        ], [
+            'icon.dimensions' => 'Rasio gambar harus 1:1', // Pesan kustom untuk validasi rasio gambar
         ]);
         if ($validator->fails()) {
             return $this->requestKurang($validator->errors());
@@ -42,6 +44,8 @@ class AdvantageContentApiController extends Controller
             'title' => 'required',
             'text' => 'required',
             'icon' => 'image|mimes:jpeg,png,jpg|max:2048|dimensions:ratio=1/1',
+        ], [
+            'image_url.dimensions' => 'Rasio gambar harus 1:1', // Pesan kustom untuk validasi rasio gambar
         ]);
         if ($validator->fails()) {
             return $this->requestKurang($validator->errors());

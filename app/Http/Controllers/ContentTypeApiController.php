@@ -24,6 +24,8 @@ class ContentTypeApiController extends Controller
         if ($card_type->content_type == 'content-1') {
             $validator = Validator::make($request->all(), [
                 'image_url' => 'required|image|mimes:jpeg,png,jpg|max:2048|dimensions:ratio=1/1',
+            ], [
+                'image_url.dimensions' => 'Rasio gambar harus 1:1', // Pesan kustom untuk validasi rasio gambar
             ]);
             if ($validator->fails()) {
                 return $this->requestKurang($validator->errors());
@@ -73,6 +75,8 @@ class ContentTypeApiController extends Controller
         if ($card_type->content_type == 'content-1') {
             $validator = Validator::make($request->all(), [
                 'image_url' => 'required|image|mimes:jpeg,png,jpg|max:2048|dimensions:ratio=1/1',
+            ], [
+                'image_url.dimensions' => 'Rasio gambar harus 1:1', // Pesan kustom untuk validasi rasio gambar
             ]);
             if ($validator->fails()) {
                 return $this->requestKurang($validator->errors());

@@ -17,7 +17,9 @@ class BlogApiController extends Controller
             'author' => 'required',
             'text' => 'required',
             'link' => 'required',
-            'image_url' => 'required|image|mimes:jpeg,png,jpg|max:2048|dimensions:ratio=16/9',
+            'image_url' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        ], [
+            'image_url.dimensions' => 'Rasio gambar harus 16:9', // Pesan kustom untuk validasi rasio gambar
         ]);
         if ($validator->fails()) {
             return $this->requestKurang($validator->errors());
@@ -51,6 +53,8 @@ class BlogApiController extends Controller
             'text' => 'required',
             'link' => 'required',
             'image_url' => 'image|mimes:jpeg,png,jpg|max:2048|dimensions:ratio=16/9',
+        ], [
+            'image_url.dimensions' => 'Rasio gambar harus 16:9', // Pesan kustom untuk validasi rasio gambar
         ]);
         if ($validator->fails()) {
             return $this->requestKurang($validator->errors());

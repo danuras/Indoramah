@@ -1220,7 +1220,6 @@ table a,
 
 /* Content Card */
 .content_card_1 li{
-	background-color: black;
 	padding: 10px;
 }
 .content_card_2 li{
@@ -1229,7 +1228,6 @@ table a,
 	padding-right: 10px;
 	padding-bottom: 10px;
 	
-	border: #000000 1px solid;
 	border-radius: 4px;
 	background-color: transparent;
 }
