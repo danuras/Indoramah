@@ -88,13 +88,13 @@ class NavigationController extends Controller
             if ($wc->content_type == 'card') {
                 $cardBox = CardBox::find($wc->card_box_id);
                 if ($cardBox->card_type == 'card-1') {
-                    $cards = Card::select('text', 'link', 'image_url', 'content_type')->where('card_box_id', $cardBox->id)->take(3)->get();
+                    $cards = Card::select('text', 'link', 'image_url', 'content_type', 'is_clickable')->where('card_box_id', $cardBox->id)->take(3)->get();
                     $cardBox['cards'] = $cards;
                 } else if ($cardBox->card_type == 'card-2') {
-                    $cards = Card::select('id', 'image_url', 'title', 'content_type')->where('card_box_id', $cardBox->id)->take(8)->get();
+                    $cards = Card::select('id', 'image_url', 'title', 'content_type', 'is_clickable')->where('card_box_id', $cardBox->id)->take(8)->get();
                     $cardBox['cards'] = $cards;
                 } else if ($cardBox->card_type == 'card-3') {
-                    $cards = Card::select('image_url', 'title', 'content_type')->where('card_box_id', $cardBox->id)->take(8)->get();
+                    $cards = Card::select('image_url', 'title', 'content_type', 'is_clickable')->where('card_box_id', $cardBox->id)->take(8)->get();
                     $cardBox['cards'] = $cards;
                 }
                 $output["card_boxes"][] = $cardBox;
@@ -150,13 +150,13 @@ class NavigationController extends Controller
         $output['title'] = $title;
 
         if ($type == 'card-1') {
-            $output['cards'] = Card::select('text', 'link', 'image_url', 'content_type')->where('card_box_id', $id)->paginate(9, ['*'], 'cards');
+            $output['cards'] = Card::select('text', 'link', 'image_url', 'content_type', 'is_clickable')->where('card_box_id', $id)->paginate(9, ['*'], 'cards');
             return view('pages.card-1', $output);
         } else if ($type == 'card-2') {
-            $output['cards'] = Card::select('id', 'image_url', 'title', 'content_type')->where('card_box_id', $id)->paginate(16, ['*'], 'cards');
+            $output['cards'] = Card::select('id', 'image_url', 'title', 'content_type', 'is_clickable')->where('card_box_id', $id)->paginate(16, ['*'], 'cards');
             return view('pages.card-2', $output);
         } else if ($type == 'card-3') {
-            $output['cards'] = Card::select('image_url', 'title', 'content_type')->where('card_box_id', $id)->paginate(16, ['*'], 'cards');
+            $output['cards'] = Card::select('image_url', 'title', 'content_type', 'is_clickable')->where('card_box_id', $id)->paginate(16, ['*'], 'cards');
             return view('pages.card-3', $output);
         }
     }

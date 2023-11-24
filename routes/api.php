@@ -114,6 +114,7 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('create', [ContentTypeApiController::class, 'create']);
         Route::post('update', [ContentTypeApiController::class, 'update']);
         Route::delete('delete/{id}', [ContentTypeApiController::class, 'delete']);
+        Route::get('show/{id}', [ContentTypeApiController::class, 'show']);
     });
     
     Route::prefix('email-service')->group(function () {

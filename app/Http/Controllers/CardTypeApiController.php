@@ -31,6 +31,8 @@ class CardTypeApiController extends Controller
                 'image_url' => 'required|image|mimes:jpeg,png,jpg|max:2048|dimensions:ratio=3/2',
                 'text' => 'required',
                 'title' => 'required',
+            ], [
+                'image_url.dimensions' => 'Rasio gambar harus 3:2', // Pesan kustom untuk validasi rasio gambar
             ]);
             if ($validator->fails()) {
                 return $this->requestKurang($validator->errors());
@@ -94,6 +96,8 @@ class CardTypeApiController extends Controller
                 'image_url' => 'image|mimes:jpeg,png,jpg|max:2048|dimensions:ratio=3/2',
                 'text' => 'required',
                 'title' => 'required',
+            ], [
+                'image_url.dimensions' => 'Rasio gambar harus 3:2', // Pesan kustom untuk validasi rasio gambar
             ]);
             if ($validator->fails()) {
                 return $this->requestKurang($validator->errors());
@@ -140,7 +144,7 @@ class CardTypeApiController extends Controller
 
     public function show($id)
     {
-        $card_type = CardType::find($id);
+        $card_type = CardType::where('card_id',$id)->first();
         return $this->successResponse([
             'card_type' => $card_type,
             'content_types' => $card_type->content_types,
@@ -151,7 +155,7 @@ class CardTypeApiController extends Controller
     {
         DB::beginTransaction();
         $card_type = CardType::find($id);
-        $card = Card::find($card_type->id);
+        $card = Card::find($card_type->card_id);
         $card->content_type = null;
         $card->is_clickable = false;
         if ($card_type->delete() && $card->save()) {

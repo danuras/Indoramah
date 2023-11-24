@@ -24,7 +24,7 @@
     <div class="wrapper row3" id = 'portfolio'>
         <main class="hoc container clear">
             <div class="btmspace-50 left">
-                <h3 class="btmspace-10">{{ $card->title }}</h3>
+                <h3 class="btmspace-10">{{ $card_type->title }}</h3>
             </div>
             <div class="group btmspace-50 left">
                 <div class="three_quarter first">
@@ -46,7 +46,7 @@
                             {!! $content_types[$i * 4]->text !!}
                         </li>
                     @else
-                        <li class="one_quarter first">
+                        <li class="one_quarter first" style="opacity: 0;">
                         </li>
                     @endif
                     @if (isset($content_types[$i * 4 + 1]))
@@ -55,7 +55,7 @@
                             {!! $content_types[$i * 4 + 1]->text !!}
                         </li>
                     @else
-                        <li class="one_quarter">
+                        <li class="one_quarter" style="opacity: 0;">
                         </li>
                     @endif
                     @if (isset($content_types[$i * 4 + 2]))
@@ -64,7 +64,7 @@
                             {!! $content_types[$i * 4 + 2]->text !!}
                         </li>
                     @else
-                        <li class="one_quarter">
+                        <li class="one_quarter" style="opacity: 0;">
                         </li>
                     @endif
                     @if (isset($content_types[$i * 4 + 3]))
@@ -73,7 +73,7 @@
                             {!! $content_types[$i * 4 + 3]->text !!}
                         </li>
                     @else
-                        <li class="one_quarter">
+                        <li class="one_quarter" style="opacity: 0;">
                         </li>
                     @endif
                 </ul>

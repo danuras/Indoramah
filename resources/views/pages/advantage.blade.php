@@ -77,7 +77,7 @@
                             <p>{{ $advantage_contents[$i * 4]->text }}</p>
                         </div>
                     @else
-                        <div class="one_quarter btmspace-30">
+                        <div class="one_quarter btmspace-30" style="opacity: 0;">
                         </div>
                     @endif
                     @if (isset($advantage_contents[$i * 4 + 1]))
@@ -88,7 +88,7 @@
                             <p>{{ $advantage_contents[$i * 4 + 1]->text }}</p>
                         </div>
                     @else
-                        <div class="one_quarter btmspace-30">
+                        <div class="one_quarter btmspace-30" style="opacity: 0;">
                         </div>
                     @endif
                     @if (isset($advantage_contents[$i * 4 + 2]))
@@ -99,7 +99,7 @@
                             <p>{{ $advantage_contents[$i * 4 + 2]->text }}</p>
                         </div>
                     @else
-                        <div class="one_quarter btmspace-30">
+                        <div class="one_quarter btmspace-30" style="opacity: 0;">
                         </div>
                     @endif
                     @if (isset($advantage_contents[$i * 4 + 3]))
@@ -110,7 +110,7 @@
                             <p>{{ $advantage_contents[$i * 4 + 3]->text }}</p>
                         </div>
                     @else
-                        <div class="one_quarter btmspace-30">
+                        <div class="one_quarter btmspace-30" style="opacity: 0;">
                         </div>
                     @endif
                 @endfor

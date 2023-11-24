@@ -50,40 +50,44 @@
                         <li class="one_quarter first">
                             <figure><img src="{{ asset($content_types[$i * 4]->image_url) }}" alt="">
                             </figure>
+                            <h4>{{$content_types[$i * 4]->title}}</h4>
                             {!! $content_types[$i * 4]->text !!}
                         </li>
                     @else
-                        <li class="one_quarter first">
+                        <li class="one_quarter first" style="opacity: 0;">
                         </li>
                     @endif
                     @if (isset($content_types[$i * 4 + 1]))
                         <li class="one_quarter">
                             <figure><img src="{{ asset($content_types[$i * 4 + 1]->image_url) }}" alt="">
                             </figure>
+                            <h4>{{$content_types[$i * 4 + 1]->title}}</h4>
                             {!! $content_types[$i * 4 + 1]->text !!}
                         </li>
                     @else
-                        <li class="one_quarter">
+                        <li class="one_quarter" style="opacity: 0;">
                         </li>
                     @endif
                     @if (isset($content_types[$i * 4 + 2]))
                         <li class="one_quarter">
                             <figure><img src="{{ asset($content_types[$i * 4 + 2]->image_url) }}" alt="">
                             </figure>
+                            <h4>{{$content_types[$i * 4 + 2]->title}}</h4>
                             {!! $content_types[$i * 4 + 2]->text !!}
                         </li>
                     @else
-                        <li class="one_quarter">
+                        <li class="one_quarter" style="opacity: 0;">
                         </li>
                     @endif
                     @if (isset($content_types[$i * 4 + 3]))
                         <li class="one_quarter">
                             <figure><img src="{{ asset($content_types[$i * 4 + 3]->image_url) }}" alt="">
                             </figure>
+                            <h4>{{$content_types[$i * 4 + 3]->title}}</h4>
                             {!! $content_types[$i * 4 + 3]->text !!}
                         </li>
                     @else
-                        <li class="one_quarter">
+                        <li class="one_quarter" style="opacity: 0;">
                         </li>
                     @endif
                 </ul>

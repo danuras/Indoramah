@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Card;
 use App\Models\CardType;
 use App\Models\ContentType;
 use Illuminate\Http\Request;
@@ -21,7 +22,8 @@ class ContentTypeApiController extends Controller
             return $this->requestKurang($validator->errors());
         }
         $card_type = CardType::find($request->card_type_id);
-        if ($card_type->content_type == 'content-1') {
+        $card = Card::find($card_type->card_id);
+        if ($card->content_type == 'content-1') {
             $validator = Validator::make($request->all(), [
                 'image_url' => 'required|image|mimes:jpeg,png,jpg|max:2048|dimensions:ratio=1/1',
             ], [
@@ -46,7 +48,7 @@ class ContentTypeApiController extends Controller
                 return $this->successResponse($content_type);
             }
             return $this->failResponse(null);
-        } else if ($card_type->content_type == 'content-2') {
+        } else if ($card->content_type == 'content-2') {
             $content_type = ContentType::create([
                 'title' => $request->title,
                 'text' => $request->text,
@@ -70,11 +72,14 @@ class ContentTypeApiController extends Controller
         if ($validator->fails()) {
             return $this->requestKurang($validator->errors());
         }
+
         $content_type = ContentType::find($request->content_id);
         $card_type = CardType::find($content_type->card_type_id);
-        if ($card_type->content_type == 'content-1') {
+        $card = Card::find($card_type->card_id);
+
+        if ($card->content_type == 'content-1') {
             $validator = Validator::make($request->all(), [
-                'image_url' => 'required|image|mimes:jpeg,png,jpg|max:2048|dimensions:ratio=1/1',
+                'image_url' => 'image|mimes:jpeg,png,jpg|max:2048|dimensions:ratio=1/1',
             ], [
                 'image_url.dimensions' => 'Rasio gambar harus 1:1', // Pesan kustom untuk validasi rasio gambar
             ]);
@@ -98,7 +103,7 @@ class ContentTypeApiController extends Controller
                 return $this->successResponse($content_type);
             }
             return $this->failResponse(null);
-        } else if ($card_type->content_type == 'content-2') {
+        } else if ($card->content_type == 'content-2') {
             
             $content_type->title = $request->title;
             $content_type->text = $request->text;
@@ -110,6 +115,11 @@ class ContentTypeApiController extends Controller
             return $this->failResponse(null);
         }
     }
+    public function show($id)
+    {
+        $content_type = ContentType::find($id);
+        return $this->successResponse($content_type);
+    }
 
     public function delete($id)
     {
@@ -119,4 +129,5 @@ class ContentTypeApiController extends Controller
         }
         return $this->failResponse(null);
     }
+
 }

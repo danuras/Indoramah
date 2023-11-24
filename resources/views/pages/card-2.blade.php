@@ -31,13 +31,20 @@
                 <div class="group btmspace-50 center">
                     @if (isset($cards[$i * 4]))
                         <div class="one_quarter first">
-                            <a
-                                href="{{ route('card-content', [$cards[$i * 4]->title, $cards[$i * 4]->content_type, $cards[$i * 4]->id]) }}">
+                            @if ($cards[$i * 4]->is_clickable)
+                                <a
+                                    href="{{ route('card-content', [$cards[$i * 4]->title, $cards[$i * 4]->content_type, $cards[$i * 4]->id]) }}">
+                                    <div class="image-container">
+                                        <img src="{{ asset($cards[$i * 4]->image_url) }}" alt="Deskripsi Gambar">
+                                        <div class="image-text">{{ $cards[$i * 4]->title }}</div>
+                                    </div>
+                                </a>
+                            @else
                                 <div class="image-container">
                                     <img src="{{ asset($cards[$i * 4]->image_url) }}" alt="Deskripsi Gambar">
                                     <div class="image-text">{{ $cards[$i * 4]->title }}</div>
                                 </div>
-                            </a>
+                            @endif
                         </div>
                     @else
                         <div class="one_quarter first">
@@ -45,13 +52,20 @@
                     @endif
                     @if (isset($cards[$i * 4 + 1]))
                         <div class="one_quarter">
-                            <a
-                                href="{{ route('card-content', [$cards[$i * 4 + 1]->title, $cards[$i * 4 + 1]->content_type, $cards[$i * 4 + 1]->id]) }}">
+                            @if ($cards[$i * 4 + 1]->is_clickable)
+                                <a
+                                    href="{{ route('card-content', [$cards[$i * 4 + 1]->title, $cards[$i * 4 + 1]->content_type, $cards[$i * 4 + 1]->id]) }}">
+                                    <div class="image-container">
+                                        <img src="{{ asset($cards[$i * 4 + 1]->image_url) }}" alt="Deskripsi Gambar">
+                                        <div class="image-text">{{ $cards[$i * 4 + 1]->title }}</div>
+                                    </div>
+                                </a>
+                            @else
                                 <div class="image-container">
                                     <img src="{{ asset($cards[$i * 4 + 1]->image_url) }}" alt="Deskripsi Gambar">
                                     <div class="image-text">{{ $cards[$i * 4 + 1]->title }}</div>
                                 </div>
-                            </a>
+                            @endif
                         </div>
                     @else
                         <div class="one_quarter">
@@ -59,13 +73,20 @@
                     @endif
                     @if (isset($cards[$i * 4 + 2]))
                         <div class="one_quarter">
-                            <a
-                                href="{{ route('card-content', [$cards[$i * 4 + 2]->title, $cards[$i * 4 + 2]->content_type, $cards[$i * 4 + 2]->id]) }}">
+                            @if ($cards[$i * 4 + 2]->is_clickable)
+                                <a
+                                    href="{{ route('card-content', [$cards[$i * 4 + 2]->title, $cards[$i * 4 + 2]->content_type, $cards[$i * 4 + 2]->id]) }}">
+                                    <div class="image-container">
+                                        <img src="{{ asset($cards[$i * 4 + 2]->image_url) }}" alt="Deskripsi Gambar">
+                                        <div class="image-text">{{ $cards[$i * 4 + 2]->title }}</div>
+                                    </div>
+                                </a>
+                            @else
                                 <div class="image-container">
                                     <img src="{{ asset($cards[$i * 4 + 2]->image_url) }}" alt="Deskripsi Gambar">
                                     <div class="image-text">{{ $cards[$i * 4 + 2]->title }}</div>
                                 </div>
-                            </a>
+                            @endif
                         </div>
                     @else
                         <div class="one_quarter">
@@ -73,13 +94,20 @@
                     @endif
                     @if (isset($cards[$i * 4 + 3]))
                         <div class="one_quarter">
-                            <a
-                                href="{{ route('card-content', [$cards[$i * 4 + 3]->title, $cards[$i * 4 + 3]->content_type, $cards[$i * 4 + 3]->id]) }}">
+                            @if ($cards[$i * 4 + 3]->is_clickable)
+                                <a
+                                    href="{{ route('card-content', [$cards[$i * 4 + 3]->title, $cards[$i * 4 + 3]->content_type, $cards[$i * 4 + 3]->id]) }}">
+                                    <div class="image-container">
+                                        <img src="{{ asset($cards[$i * 4 + 3]->image_url) }}" alt="Deskripsi Gambar">
+                                        <div class="image-text">{{ $cards[$i * 4 + 3]->title }}</div>
+                                    </div>
+                                </a>
+                            @else
                                 <div class="image-container">
                                     <img src="{{ asset($cards[$i * 4 + 3]->image_url) }}" alt="Deskripsi Gambar">
                                     <div class="image-text">{{ $cards[$i * 4 + 3]->title }}</div>
                                 </div>
-                            </a>
+                            @endif
                         </div>
                     @else
                         <div class="one_quarter">
@@ -87,7 +115,7 @@
                     @endif
                 </div>
             @endfor
-            
+
             <div class="text-xs-center">
                 {!! $cards->links('vendor.pagination.bootstrap-4') !!}
             </div>
