@@ -1,5 +1,5 @@
 <html>
-    <title>Pesan Masuk dari web portfolio</title>
+    <title>Pesan Masuk dari danuras web builder</title>
     <body>
         <h1>Pesan dari {{$input_data->name}}</h1>
         <p>email: {{$input_data->email}}</p>

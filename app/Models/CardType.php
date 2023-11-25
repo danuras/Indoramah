@@ -11,6 +11,7 @@ class CardType extends Model
 
     protected $fillable = [
         'title',
+        'description',
         'image_url',
         'text',
         'whatsapp_message',

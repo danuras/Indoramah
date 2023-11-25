@@ -2,8 +2,9 @@
 <html>
 
 <head>
-    <title>Pelanggan</title>
+    <title>{{$title}}</title>
     <meta charset="utf-8">
+    <meta name="description" content="{{$card_box->info}}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <link href="{{ asset('layout/styles/layout.css') }}" rel="stylesheet" type="text/css" media="all">
@@ -27,6 +28,7 @@
         <main class="hoc container clear">
             <div class="btmspace-50 center">
                 <h3 class="btmspace-10">{{$title}}</h3>
+                <p>{{$card_box->info}}</p>
             </div>
             @for ($i = 0; $i < sizeof($cards) / 4; $i++)
                 <ul class="nospace clear services">

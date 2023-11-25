@@ -2,8 +2,9 @@
 <html>
 
 <head>
-    <title>Blog</title>
+    <title>Blog {{$web_attribute->title}}</title>
     <meta charset="utf-8">
+    <meta name="description" content="{{ $web_attribute->short_description }}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="{{ asset('layout/styles/layout.css') }}" rel="stylesheet" type="text/css" media="all">
     <link href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" rel="stylesheet" />
@@ -25,7 +26,7 @@
     <div class="wrapper row3" id="blog">
         <section class="hoc container clear">
             <div class="btmspace-50 center">
-                <h3 class="btmspace-10">Blog</h3>
+                <h3 class="btmspace-10">Blog {{$web_attribute->title}}</h3>
             </div>
             <div class="latest">
                 @for ($i = 0; $i < sizeof($blogs) / 2; $i++)

@@ -148,6 +148,7 @@ class NavigationController extends Controller
     {
         $output = $this->getFooterOutput();
         $output['title'] = $title;
+        $output['card_box'] = CardBox::find($id);
 
         if ($type == 'card-1') {
             $output['cards'] = Card::select('text', 'link', 'image_url', 'content_type', 'is_clickable')->where('card_box_id', $id)->paginate(9, ['*'], 'cards');

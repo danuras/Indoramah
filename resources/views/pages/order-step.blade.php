@@ -2,8 +2,9 @@
 <html>
 
 <head>
-    <title>Langkah Pemesanan</title>
+    <title>Standard Operating Procedure (SOP) Proses Pemesanan Produk {{ $web_attribute->title }}</title>
     <meta charset="utf-8">
+    <meta name="description" content="{{ $contact->info_contact }}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <link href="{{ asset('layout/styles/layout.css') }}" rel="stylesheet" type="text/css" media="all">
@@ -25,46 +26,51 @@
     <div class="wrapper row3" id="customers">
         <main class="hoc container clear">
             <div class="btmspace-50 center">
-                <h3 class="btmspace-10">Standard Operating Procedure (SOP) Proses Pemesanan Produk {{$web_attribute->title}}
+                <h3 class="btmspace-10">Standard Operating Procedure (SOP) Proses Pemesanan Produk
+                    {{ $web_attribute->title }}
                 </h3>
                 <br><br>
-                @for ($i = 0; $i < sizeof($order_steps)/4; $i++)
+                @for ($i = 0; $i < sizeof($order_steps) / 4; $i++)
                     <div class="group btmspace-50 demo">
-                        @if(isset($order_steps[$i*4]))
+                        @if (isset($order_steps[$i * 4]))
                             <div class="one_quarter first">
-                                <figure><img class="circle" src="{{ asset($order_steps[$i*4]->icon) }}" alt=""></figure>
+                                <figure><img class="circle" src="{{ asset($order_steps[$i * 4]->icon) }}" alt="">
+                                </figure>
                                 <br>
-                                <p>{{$i*4+1}}. {{$order_steps[$i*4]->value}}</p>
+                                <p>{{ $i * 4 + 1 }}. {{ $order_steps[$i * 4]->value }}</p>
                             </div>
                         @else
                             <div class="one_quarter first">
                             </div>
                         @endif
-                        @if(isset($order_steps[$i*4+1]))
+                        @if (isset($order_steps[$i * 4 + 1]))
                             <div class="one_quarter">
-                                <figure><img class="circle" src="{{ asset($order_steps[$i*4+1]->icon) }}" alt=""></figure>
+                                <figure><img class="circle" src="{{ asset($order_steps[$i * 4 + 1]->icon) }}"
+                                        alt=""></figure>
                                 <br>
-                                <p>{{$i*4+2}}. {{$order_steps[$i*4+1]->value}}</p>
+                                <p>{{ $i * 4 + 2 }}. {{ $order_steps[$i * 4 + 1]->value }}</p>
                             </div>
                         @else
                             <div class="one_quarter">
                             </div>
                         @endif
-                        @if(isset($order_steps[$i*4+2]))
+                        @if (isset($order_steps[$i * 4 + 2]))
                             <div class="one_quarter">
-                                <figure><img class="circle" src="{{ asset($order_steps[$i*4+2]->icon) }}" alt=""></figure>
+                                <figure><img class="circle" src="{{ asset($order_steps[$i * 4 + 2]->icon) }}"
+                                        alt=""></figure>
                                 <br>
-                                <p>{{$i*4+3}}. {{$order_steps[$i*4+2]->value}}</p>
+                                <p>{{ $i * 4 + 3 }}. {{ $order_steps[$i * 4 + 2]->value }}</p>
                             </div>
                         @else
                             <div class="one_quarter">
                             </div>
                         @endif
-                        @if(isset($order_steps[$i*4+3]))
+                        @if (isset($order_steps[$i * 4 + 3]))
                             <div class="one_quarter">
-                                <figure><img class="circle" src="{{ asset($order_steps[$i*4+3]->icon) }}" alt=""></figure>
+                                <figure><img class="circle" src="{{ asset($order_steps[$i * 4 + 3]->icon) }}"
+                                        alt=""></figure>
                                 <br>
-                                <p>{{$i*4+4}}. {{$order_steps[$i*4+3]->value}}</p>
+                                <p>{{ $i * 4 + 4 }}. {{ $order_steps[$i * 4 + 3]->value }}</p>
                             </div>
                         @else
                             <div class="one_quarter">
@@ -72,13 +78,13 @@
                         @endif
                     </div>
                 @endfor
-                
+
             </div>
 
             <div class="clear"></div>
         </main>
     </div>
-    
+
     @include('components.footer', [
         'web_attribute' => $web_attribute,
         'contact' => $contact,

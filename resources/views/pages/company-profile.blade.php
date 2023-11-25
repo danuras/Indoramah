@@ -2,8 +2,9 @@
 <html>
 
 <head>
-    <title>Profil Perusahaan</title>
+    <title>Profil {{$web_attribute->title}}</title>
     <meta charset="utf-8">
+    <meta name="description" content="{{$company_profile->description}}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="{{asset('layout/styles/layout.css')}}" rel="stylesheet" type="text/css" media="all">
     <link href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" rel="stylesheet" />

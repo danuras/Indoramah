@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App;
 use DB;
 use Illuminate\Support\ServiceProvider;
 

@@ -16,6 +16,7 @@ class CardTypeApiController extends Controller
         $validator = Validator::make($request->all(), [
             'content_type' => 'required',
             'whatsapp_message' => 'required',
+            'description' => 'required',
             'card_id' => 'required',
         ]);
         if ($validator->fails()) {
@@ -47,6 +48,7 @@ class CardTypeApiController extends Controller
                 'title' => $request->title,
                 'sub_content_title' => $request->sub_content_title,
                 'whatsapp_message' => $request->whatsapp_message,
+                'description' => $request->description,
                 'card_id' => $request->card_id,
                 'text' => $request->text,
                 'image_url' => $image_url,
@@ -66,6 +68,7 @@ class CardTypeApiController extends Controller
             }
             $card_type = CardType::create([
                 'title' => $request->title,
+                'description' => $request->description,
                 'sub_content_title' => $request->sub_content_title,
                 'whatsapp_message' => $request->whatsapp_message,
                 'card_id' => $request->card_id,
@@ -83,6 +86,7 @@ class CardTypeApiController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'card_type_id' => 'required',
+            'description' => 'required',
             'whatsapp_message' => 'required',
         ]);
         if ($validator->fails()) {
@@ -111,6 +115,7 @@ class CardTypeApiController extends Controller
             }
 
             $card_type->title = $request->title;
+            $card_type->description = $request->description;
             $card_type->sub_content_title = $request->sub_content_title;
             $card_type->whatsapp_message = $request->whatsapp_message;
             $card_type->text = $request->text;
@@ -131,6 +136,7 @@ class CardTypeApiController extends Controller
                 return $this->requestKurang($validator->errors());
             }
             $card_type->title = $request->title;
+            $card_type->description = $request->description;
             $card_type->sub_content_title = $request->sub_content_title;
             $card_type->whatsapp_message = $request->whatsapp_message;
 
